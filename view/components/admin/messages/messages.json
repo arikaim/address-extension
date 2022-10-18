@@ -1,0 +1,25 @@
+{
+    "address": {
+        "add": "Address was created successfully.",
+        "update": "Address was saved successfully.",
+        "delete": "Address was deleted successfully."
+    },
+    "restore": "Item was restored successfully.",
+    "country": {
+        "update": "Saved.",
+        "add": "Country was created successfully.",
+        "delete": "Country was deleted successfully."      
+    },
+    "city": {
+        "update": "Saved.",
+        "add": "City was created successfully.",
+        "delete": "City was deleted successfully."     
+    },
+    "state": {
+        "update": "State was saved successfully.",
+        "add": "State was created successfully.",
+        "delete": "State was deleted successfully."     
+    },
+    "errors": {        
+    }
+}

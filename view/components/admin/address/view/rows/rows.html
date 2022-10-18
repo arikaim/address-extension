@@ -1,0 +1,40 @@
+{% set address = createModel('Address','address').getNotDeletedQuery() %}
+{{ createSearch('address','address','ilike:{value}%') }}
+{% set address = applySearch(address,'address') %}
+{% set items = paginate(address,'address') %}  
+{% if items.getItems()|length == 0 %}
+    <tr>
+        <td colspan="7">..</td>
+    </tr>
+{% endif %}
+{% for item in items.getItems() %} 
+    <tr id="row_{{ item.uuid }}">
+        <td>
+            <button class="ui icon mini basic button edit-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
+                <i class="icon edit"></i>
+            </button> 
+            <button class="ui icon mini basic button edit-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
+                <i class="icon edit"></i>
+            </button> 
+            <button class="ui icon mini basic button details-button" {{ buttons.details.title|attr('title') }} uuid="{{ item.uuid }}" data-title="{{ item.title }}">
+                <i class="icon info"></i>
+            </button> 
+        </td>
+        <td>
+            {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}         
+        </td>       
+        <td>{{ item.country_name }}</td>
+        <td>{{ item.city_name }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.user.user_name_or_email }}</td>
+        <td>
+            {% if item.type is not empty %}
+            <div class="ui basic label horizontal">
+                {{ item.type }}
+            </div>   
+            {% else %}
+            ..
+            {% endif %}        
+        </td>
+    </tr>
+{% endfor %}

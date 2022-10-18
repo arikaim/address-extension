@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "name": {
+            "label": "Name",
+            "placeholder": "Enter city name"      
+        },
+        "country": {
+            "label": "Country",
+            "placeholder": "Select Country"      
+        },
+        "capital": {
+            "label": "Capital",
+            "placeholder": ""      
+        }          
+    }    
+}

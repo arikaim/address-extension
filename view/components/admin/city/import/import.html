@@ -1,0 +1,23 @@
+{% component 'semantic~tabs.vertical.content' %}
+    <div class="mt-4 p-4">
+        <form class="ui equal width form" id="import_city_form">              
+            <div class="field required">
+                <label>{{ labels.driver }}</label>                
+            </div>            
+            <div class="field required">
+                <label>{{ labels.country }}</label>
+                {{  component('address::address.country',{ 
+                        selected: city.country_id, 
+                        data_field: 'id',
+                        rule: 'empty',
+                        name: 'country_id',
+                        class: 'fluid' 
+                    }) 
+                }} 
+            </div>                                        
+            {{ component('semantic~form.footer') }}   
+        </form>       
+    </div>    
+    <div class="mt-4" id="import_result">          
+    </div>
+{% endcomponent %}

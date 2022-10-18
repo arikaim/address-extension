@@ -1,0 +1,11 @@
+{{  component('semantic~tabs.vertical',{ 
+        items: [ 
+            { title: labels.view, component: 'address::admin.country.view', icon: 'list', id: 'view_country', active: true },   
+            { id: 'country_add', title: labels.add, component: 'address::admin.country.add', icon: 'plus' },
+            { id: 'country_edit', title: labels.edit, component: 'address::admin.country.edit', icon: 'edit'},
+        ], 
+        menu: { id: 'country_menu' }, 
+        item_class: 'country-tab-item',
+        content: { id: 'country_content', component: 'address::admin.country.view' } 
+    })
+}}

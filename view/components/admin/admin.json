@@ -1,0 +1,10 @@
+{    
+    "labels": {       
+        "address": "Address",       
+        "country": "Countries",
+        "city": "Cities",
+        "state": "States",      
+        "map": "Map",
+        "settings": "Settings"
+    }  
+}

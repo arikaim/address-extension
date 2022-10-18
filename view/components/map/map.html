@@ -1,0 +1,20 @@
+{% set default_driver = getOption('map.default.driver') %}
+{% set provider = provider|default(default_driver) %}
+
+{% if provider == 'google.map' %}
+    {{  component('address::map.google',{ 
+            class: class, 
+            hide_buttons: hide_buttons,
+            longitude: longitude,
+            latitude: latitude
+        }) 
+    }}
+{% elseif provider == 'mapbox.map' %}
+    {{  component('address::map.mapbox',{ 
+            class: class, 
+            hide_buttons: hide_buttons,
+            longitude: longitude,
+            latitude: latitude
+        }) 
+    }}
+{% endif %}

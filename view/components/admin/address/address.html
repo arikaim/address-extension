@@ -1,0 +1,14 @@
+{{  component('semantic~tabs.vertical',{ 
+        items: [ 
+            { title: labels.view,component: 'address::admin.address.view',icon: 'list', active: true },
+            { id: 'add_address',title: labels.add,component: 'address::admin.address.add',icon: 'plus' },
+            { id: 'edit_address',title: labels.edit,component: 'address::admin.address.edit',icon: 'edit' }    
+        ], 
+        menu: { id: 'address_menu' }, 
+        item_class: 'address-tab-item',
+        content: {
+            id: 'address_content',
+            component: 'address::admin.address.view'
+        } 
+    })
+}}

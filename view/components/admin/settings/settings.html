@@ -1,0 +1,20 @@
+{% set map_driver = getOption('map.default.driver','mapbox.map') %}
+<div class="flex flex-row items-start">
+    <div class="ui segment w-96">
+        {{ component('semantic~segment-title',{ title: labels.map, icon: 'map' }) }}
+        <div class="mt-2">
+            {{ component('system:admin.drivers.list',{ category: 'map', empty: '..' }) }}
+        </div>   
+        <div class="mt-1 p-2">
+            <h4>{{ labels.current }}</h4>
+            {{  component('system:admin.drivers.dropdown',{ 
+                    selected: map_driver, 
+                    category: 'map',
+                    class: 'fluid' 
+                }) 
+            }}    
+        </div>     
+    </div>
+    <div class="w-full ml-2" id="settings_content">
+    </div>
+</div>

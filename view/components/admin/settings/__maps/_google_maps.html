@@ -1,0 +1,20 @@
+{% component 'semantic~tabs.vertical.content' %}
+{% set library = package('library').getPackageProperties('maps') %}
+{% set package = package('library').createPackage('maps') %}
+{% set options = package.getLibraryParams() %}
+
+<div class="mt-4">      
+    {% if library['package-type'] is empty %}
+        <div class="ui warning message">{{ messages.library }}</div>
+    {% else %} 
+        {% set library_params = (options.params is empty) ? library.params : options.params %}
+        {{  component('system:admin.libraries.library.params.form',{ 
+                library: 'maps',
+                params: library_params,
+                show_value: true,
+                show_label: true 
+            }) 
+        }}
+    {% endif %}         
+</div>
+{% endcomponent %}

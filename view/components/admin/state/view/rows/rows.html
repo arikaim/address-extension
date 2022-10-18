@@ -1,0 +1,35 @@
+{% set state = createModel('State','address').where('id','>',0) %}
+{{ createSearch('name','state','ilike:{value}%') }}
+{% set state = applySearch(state,'state') %}
+{% set items = paginate(state,'state') %}  
+{% for item in items.getItems() %} 
+
+<tr id="row_{{ item.uuid }}">
+    <td>        
+        <button class="ui icon mini basic button edit-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
+            <i class="icon edit"></i>
+        </button>   
+        <button 
+            class="ui icon mini basic button delete-button" {{ buttons.delete.title|attr('title') }} 
+            uuid="{{ item.uuid }}" 
+            data-title="{{ item.name }}">
+            <i class="icon trash orange"></i>
+        </button>       
+    </td>
+    <td>
+        {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}         
+    </td>       
+    <td>
+        {{ item.code }}
+    </td>
+    <td>{{ item.name }}</td>
+    <td >
+        <div class="ui basic blue horizontal mini label">
+            {{ item.country_code }}
+        </div>
+        <span class="pl-1">
+            {{ item.country.name }}
+        </span>       
+    </td>
+</tr>
+{% endfor %}

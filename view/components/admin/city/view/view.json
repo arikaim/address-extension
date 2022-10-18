@@ -1,0 +1,12 @@
+{
+    "title": {
+        "content": "View",
+        "icon": "list"              
+    },
+    "columns": {
+        "action": "Action",    
+        "country": "Country",   
+        "status": "Status",      
+        "title": "Title"               
+    }
+}

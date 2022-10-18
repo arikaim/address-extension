@@ -1,0 +1,31 @@
+<div class="ui segment">
+    <div class="ui stackable three column grid">        
+        <div class="column left aligned">
+            {{ component('semantic~search.form',{ namespace: 'state' }) }}
+        </div>  
+        <div class="column">
+        </div>     
+        <div class="column right aligned">       
+            {{ component('semantic~paginator.dropdown',{ namespace: 'state' }) }}
+        </div>
+    </div>
+</div>
+<div class="ui segment">
+    <table class="ui compact stackable selectable borderless basic table">
+        <thead class="table-head">
+            <tr>              
+                <th class="one wide collapsing left aligned ">{{ columns.action }}</th>
+                <th class="two wide ">{{ columns.status }}</th>   
+                <th class="two wide ">{{ columns.code }}</th>                                        
+                <th>{{ columns.title }}</th>     
+                <th class="four wide ">{{ columns.country }}</th>                                                                              
+            </tr>
+        </thead>
+        <tbody id="states_rows" component="address::admin.state.view.rows" namespace="state">
+            {{ component('address::admin.state.view.rows') }}   
+        </tbody>
+    </table>
+    <div class="mt-2" id="paginator">
+        {{ component('semantic~paginator',{ namespace: 'state' }) }}
+    </div>
+</div>

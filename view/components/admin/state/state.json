@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "view":  "View",                      
+        "add": "Add",    
+        "edit": "Edit"              
+    },
+    "messages": {
+        "remove": {
+            "title": "Confirm Remove",
+            "content": "Confirm remove state '<b><% title %></b>'."
+        }       
+    }
+}

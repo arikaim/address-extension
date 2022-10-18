@@ -1,0 +1,26 @@
+{% if uuid is not empty %}
+    {% set country = createModel('Country','address').findById(uuid) %} 
+{% endif %}
+
+<form class="ui equal width form" id="country_form">  
+    <input type="hidden" name="uuid" id="uuid" value="{{ uuid }}">    
+    <div class="field required">
+        <label>{{ fields.name.label }}</label>
+        <input rule="empty" type="text" name="name" id="name" {{ fields.title.placeholder|attr('placeholder') }} value="{{ country.name }}">  
+    </div> 
+    <div class="three fields">
+        <div class="field required">
+            <label>{{ fields.code.label }}</label>
+            <input rule="empty" type="text" name="code" id="code" {{ fields.code.placeholder|attr('placeholder') }} value="{{ country.code }}">         
+        </div> 
+        <div class="field">
+            <label>{{ fields.phone_code.label }}</label>
+            <input type="text" name="phone_code" id="phone_code" {{ fields.phone_code.placeholder|attr('placeholder') }} value="{{ country.phone_code }}">         
+        </div> 
+        <div class="field">
+            <label>{{ fields.currency_code.label }}</label>
+            <input type="text" name="currency_code" id="currency_code" {{ fields.currency_code.placeholder|attr('placeholder') }} value="{{ country.currency_code }}">         
+        </div>     
+    </div>                     
+    {{ component('semantic~form.footer') }}   
+</form>

@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "view":  "View",                      
+        "add": "Add",  
+        "import": "Import",  
+        "stats": "Stats",  
+        "edit": "Edit"              
+    },
+    "messages": {
+        "remove": {
+            "title": "Confirm Remove",
+            "content": "Confirm remove city '<b><% title %></b>'."
+        }       
+    }
+}

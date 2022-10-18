@@ -1,0 +1,337 @@
+[
+    {
+        "name": "Alabama",
+        "code": "AL",
+        "country_code": "US"
+    },
+    {
+        "name": "Alaska",
+        "code": "AK",
+        "country_code": "US"
+    },
+    {
+        "name": "American Samoa",
+        "code": "AS",
+        "country_code": "US"
+    },
+    {
+        "name": "Arizona",
+        "code": "AZ",
+        "country_code": "US"
+    },
+    {
+        "name": "Arkansas",
+        "code": "AR",
+        "country_code": "US"
+    },
+    {
+        "name": "California",
+        "code": "CA",
+        "country_code": "US"
+    },
+    {
+        "name": "Colorado",
+        "code": "CO",
+        "country_code": "US"
+    },
+    {
+        "name": "Connecticut",
+        "code": "CT",
+        "country_code": "US"
+    },
+    {
+        "name": "Delaware",
+        "code": "DE",
+        "country_code": "US"
+    },
+    {
+        "name": "District Of Columbia",
+        "code": "DC",
+        "country_code": "US"
+    },
+    {
+        "name": "Federated States Of Micronesia",
+        "code": "FM",
+        "country_code": "US"
+    },
+    {
+        "name": "Florida",
+        "code": "FL",
+        "country_code": "US"
+    },
+    {
+        "name": "Georgia",
+        "code": "GA",
+        "country_code": "US"
+    },
+    {
+        "name": "Guam",
+        "code": "GU",
+        "country_code": "US"
+    },
+    {
+        "name": "Hawaii",
+        "code": "HI",
+        "country_code": "US"
+    },
+    {
+        "name": "Idaho",
+        "code": "ID",
+        "country_code": "US"
+    },
+    {
+        "name": "Illinois",
+        "code": "IL",
+        "country_code": "US"
+    },
+    {
+        "name": "Indiana",
+        "code": "IN",
+        "country_code": "US"
+    },
+    {
+        "name": "Iowa",
+        "code": "IA",
+        "country_code": "US"
+    },
+    {
+        "name": "Kansas",
+        "code": "KS",
+        "country_code": "US"
+    },
+    {
+        "name": "Kentucky",
+        "code": "KY",
+        "country_code": "US"
+    },
+    {
+        "name": "Louisiana",
+        "code": "LA",
+        "country_code": "US"
+    },
+    {
+        "name": "Maine",
+        "code": "ME",
+        "country_code": "US"
+    },
+    {
+        "name": "Marshall Islands",
+        "code": "MH",
+        "country_code": "US"
+    },
+    {
+        "name": "Maryland",
+        "code": "MD",
+        "country_code": "US"
+    },
+    {
+        "name": "Massachusetts",
+        "code": "MA",
+        "country_code": "US"
+    },
+    {
+        "name": "Michigan",
+        "code": "MI",
+        "country_code": "US"
+    },
+    {
+        "name": "Minnesota",
+        "code": "MN",
+        "country_code": "US"
+    },
+    {
+        "name": "Mississippi",
+        "code": "MS",
+        "country_code": "US"
+    },
+    {
+        "name": "Missouri",
+        "code": "MO",
+        "country_code": "US"
+    },
+    {
+        "name": "Montana",
+        "code": "MT",
+        "country_code": "US"
+    },
+    {
+        "name": "Nebraska",
+        "code": "NE",
+        "country_code": "US"
+    },
+    {
+        "name": "Nevada",
+        "code": "NV",
+        "country_code": "US"
+    },
+    {
+        "name": "New Hampshire",
+        "code": "NH",
+        "country_code": "US"
+    },
+    {
+        "name": "New Jersey",
+        "code": "NJ",
+        "country_code": "US"
+    },
+    {
+        "name": "New Mexico",
+        "code": "NM",
+        "country_code": "US"
+    },
+    {
+        "name": "New York",
+        "code": "NY",
+        "country_code": "US"
+    },
+    {
+        "name": "North Carolina",
+        "code": "NC",
+        "country_code": "US"
+    },
+    {
+        "name": "North Dakota",
+        "code": "ND",
+        "country_code": "US"
+    },
+    {
+        "name": "Northern Mariana Islands",
+        "code": "MP",
+        "country_code": "US"
+    },
+    {
+        "name": "Ohio",
+        "code": "OH",
+        "country_code": "US"
+    },
+    {
+        "name": "Oklahoma",
+        "code": "OK",
+        "country_code": "US"
+    },
+    {
+        "name": "Oregon",
+        "code": "OR",
+        "country_code": "US"
+    },
+    {
+        "name": "Palau",
+        "code": "PW",
+        "country_code": "US"
+    },
+    {
+        "name": "Pennsylvania",
+        "code": "PA",
+        "country_code": "US"
+    },
+    {
+        "name": "Puerto Rico",
+        "code": "PR",
+        "country_code": "US"
+    },
+    {
+        "name": "Rhode Island",
+        "code": "RI",
+        "country_code": "US"
+    },
+    {
+        "name": "South Carolina",
+        "code": "SC",
+        "country_code": "US"
+    },
+    {
+        "name": "South Dakota",
+        "code": "SD",
+        "country_code": "US"
+    },
+    {
+        "name": "Tennessee",
+        "code": "TN",
+        "country_code": "US"
+    },
+    {
+        "name": "Texas",
+        "code": "TX",
+        "country_code": "US"
+    },
+    {
+        "name": "Utah",
+        "code": "UT",
+        "country_code": "US"
+    },
+    {
+        "name": "Vermont",
+        "code": "VT",
+        "country_code": "US"
+    },
+    {
+        "name": "Virgin Islands",
+        "code": "VI",
+        "country_code": "US"
+    },
+    {
+        "name": "Virginia",
+        "code": "VA",
+        "country_code": "US"
+    },
+    {
+        "name": "Washington",
+        "code": "WA",
+        "country_code": "US"
+    },
+    {
+        "name": "West Virginia",
+        "code": "WV",
+        "country_code": "US"
+    },
+    {
+        "name": "Wisconsin",
+        "code": "WI",
+        "country_code": "US"
+    },
+    {
+        "name": "Wyoming",
+        "code": "WY",
+        "country_code": "US"
+    },
+    {
+        "name": "New South Wales",
+        "code": "NSW",
+        "country_code": "AU"
+    },
+    {
+        "name": "Queensland",
+        "code": "QLD",
+        "country_code": "AU"
+    },
+    {
+        "name": "South Australia",
+        "code": "SA",
+        "country_code": "AU"
+    },
+    {
+        "name": "Tasmania",
+        "code": "TAS",
+        "country_code": "AU"
+    },
+    {
+        "name": "Victoria",
+        "code": "VIC",
+        "country_code": "AU"
+    },
+    {
+        "name": "Western Australia",
+        "code": "WA",
+        "country_code": "AU"
+    },
+    {
+        "name": "Australian Capital Territory",
+        "code": "ACT",
+        "country_code": "AU"
+    },
+    {
+        "name": "Northern Territory",
+        "code": "NT",
+        "country_code": "AU"
+    }
+]

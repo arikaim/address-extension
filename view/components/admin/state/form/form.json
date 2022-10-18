@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "name": {
+            "label": "Name",
+            "placeholder": "Enter state name"      
+        },
+        "country": {
+            "label": "Country",
+            "placeholder": "Select Country"      
+        },
+        "code": {
+            "label": "Code",
+            "placeholder": "Enter state code"      
+        }        
+    }    
+}

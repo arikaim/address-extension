@@ -1,0 +1,13 @@
+{
+    "title": {
+        "content": "View",
+        "icon": "list"              
+    },
+    "columns": {
+        "action": "Action",    
+        "phone_code": "Phone Code",   
+        "status": "Status",      
+        "name": "Name",
+        "code": "Code"            
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "title": "Product Details",
+    "labels": {
+        "uuid": "Uuid",
+        "title": "Title",
+        "slug": "Slug",
+        "date": "Created",
+        "image": "Image",
+        "price": "Price",
+        "status": "Status",
+        "updated": "Updated",
+        "user": "User",
+        "type": "Type"
+    }
+}

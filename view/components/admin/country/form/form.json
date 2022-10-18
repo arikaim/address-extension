@@ -1,0 +1,20 @@
+{
+    "fields": {
+        "name": {
+            "label": "Name",
+            "placeholder": "Enter country name"      
+        },
+        "code": {
+            "label": "Code",
+            "placeholder": "Enter country code"      
+        },
+        "phone_code": {
+            "label": "Phone Code",
+            "placeholder": "Enter phone code"      
+        },
+        "currency_code": {
+            "label": "Currency Code",
+            "placeholder": "Enter currency code"      
+        }              
+    }    
+}

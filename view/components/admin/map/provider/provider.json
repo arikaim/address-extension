@@ -1,0 +1,13 @@
+{
+    "items": {
+        "google.map": {
+            "title": "Google Maps"            
+        },
+        "mapbox.map": {
+            "title": "Mapbox Maps"
+        }
+    },
+    "labels": {
+        "select": "Select Map Provider"
+    }
+}

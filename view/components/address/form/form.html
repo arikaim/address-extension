@@ -1,0 +1,21 @@
+{% if uuid is not empty %}
+    {% set address = createModel('Address','address').findById(uuid) %} 
+{% endif %}
+<form class="ui equal width form" id="address_form">  
+    <input type="hidden" name="uuid" id="uuid" value="{{ uuid }}">  
+    <input type="hidden" name="type" id="address_type" value="{{ type|default(address.type) }}"> 
+    {% if show_type == true %}
+    <div class="w-full mb-4">
+        <div class="ui basic label">
+            {{ labels.type }}
+            <div class="detail">
+                <span class="ui blue text">
+                    {{ address.type }}
+                </span>
+            </div>
+        </div>
+    </div>   
+    {% endif %}   
+    {{ component('address::address.form.fields',{ address: address, show_names: show_names }) }}
+    {{ component('semantic~form.footer') }}   
+</form>

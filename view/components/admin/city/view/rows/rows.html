@@ -1,0 +1,27 @@
+{% set city = createModel('City','address').where('id','>',0) %}
+{{ createSearch('name','city','ilike:{value}%') }}
+{% set city = applySearch(city,'city') %}
+{% set items = paginate(city,'city') %}  
+{% for item in items.getItems() %} 
+    <tr id="row_{{ item.uuid }}">
+        <td>
+            <button class="ui icon mini basic button edit-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
+                <i class="icon edit"></i>
+            </button> 
+            <button 
+                class="ui icon mini basic button delete-button" 
+                {{ buttons.delete.title|attr('title') }} uuid="{{ item.uuid }}" data-title="{{ item.name }}">
+                <i class="icon trash orange"></i>
+            </button> 
+        </td>
+        <td>
+            {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}         
+        </td>             
+        <td>
+            {{ item.name }}
+        </td>
+        <td>
+            {{ item.country.name }}
+        </td>
+    </tr>
+{% endfor %}

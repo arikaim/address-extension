@@ -1,0 +1,10 @@
+{
+    "title": {
+        "content": "Settings",
+        "icon": "cogs"
+    },
+    "labels": {
+        "current": "Use Driver",
+        "map": "Map Drivers"
+    }  
+}

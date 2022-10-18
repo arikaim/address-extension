@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "edit": "Edit",
+        "view": "View",
+        "add": "Add"
+    },
+    "messages": {
+        "delete": {
+            "title": "Cofirm delete",
+            "content": "Confirm remove country '<b><% title %></b>'."
+        }
+    }
+}

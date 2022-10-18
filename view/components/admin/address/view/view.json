@@ -1,0 +1,15 @@
+{
+    "title": {
+        "content": "View",
+        "icon": "list"              
+    },
+    "columns": {
+        "action": "Action",    
+        "country": "Country",   
+        "status": "Status",      
+        "city": "City",
+        "user": "User",
+        "type": "Type",
+        "address": "Address"            
+    }
+}
