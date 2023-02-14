@@ -51,9 +51,6 @@ class CityApi extends ApiController
         $this->paginate($model,$page,$perPage);
    
         $this->setResponse(\is_object($model),function() use($countryCode,$request,$userId) { 
-            $this->get('service')->with('apimetrics',function($service) use($request,$userId) {
-                $service->increment($request,$userId);
-            });
             $this                                   
                 ->field('country',$countryCode);              
         },'errors.list');      
