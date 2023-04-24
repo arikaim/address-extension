@@ -70,6 +70,7 @@ class Address extends Extension
         $this->registerContentTypeAction('address','Classes\\ExportToVCardAction');
         $this->registerContentTypeAction('address','Classes\\ImportFromArray');        
         $this->registerContentTypeAction('address','Classes\\ImportFromStripeCheckout');  
+        $this->registerContentTypeAction('address','Classes\\ImportFromPayPalCheckout');  
         // Content providers
         $this->registerContentProvider(Model::Address('address'));
         // Drivers
