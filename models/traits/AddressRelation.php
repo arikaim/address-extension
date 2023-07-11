@@ -33,4 +33,14 @@ trait AddressRelation
             return $address;
         });
     }
+
+    /**
+     * Return true if address relation exist
+     *
+     * @return boolean
+     */
+    public function hasAddress(): bool
+    {
+        return (empty($this->address_id) == true) ? false : ($this->address->first() !== null);
+    }
 }
