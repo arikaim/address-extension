@@ -73,8 +73,8 @@ class Address extends Model implements ContentProviderInterface
         'zip_code', 
         'address', 
         'address_2', 
-        'map_latitude', 
-        'map_longitude', 
+        'latitude', 
+        'longitude', 
         'phone', 
         'email', 
         'website',
@@ -110,6 +110,16 @@ class Address extends Model implements ContentProviderInterface
      * @var string
      */
     protected $contentProviderTitle = 'Address';
+
+    /**
+     * Return true if address has map location
+     *
+     * @return boolean
+     */
+    public function hasMapLocation(): bool
+    {
+        return ( (empty($this->latitude) == false) && (empty($this->longitude) == false) );
+    }
 
     /**
      * Get total data items

@@ -18,6 +18,41 @@ use Arikaim\Core\Controllers\ApiController;
 class AddressApi extends ApiController
 {
     /**
+     * Update map location
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param Validator $data
+     * @return Psr\Http\Message\ResponseInterface
+    */
+    public function updateMap($request, $response, $data)
+    {
+        $uuid = $data->get('uuid',null);
+        $latitude = $data->get('latitude',null);
+        $longitude = $data->get('longitude',null);
+
+        $address = Model::Address('address')->findById($uuid);
+        if ($address == null) {
+            $this->error('address.errors','Not vlaid address id');
+            return false;
+        }
+
+        // check user access
+        $this->requireUser($address->user_id);
+
+        $address->update([
+            'latitude'  => (empty($latitude) == true) ? null : $latitude,
+            'longitude' => (empty($longitude) == true) ? null : $longitude, 
+        ]);
+
+        $this
+            ->field('uuid',$address->uuid)  
+            ->field('latitude',$latitude)  
+            ->field('longitude',$longitude)  
+            ->message('address.map','Map location saved');   
+    }
+
+    /**
      * Update address
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
@@ -36,6 +71,10 @@ class AddressApi extends ApiController
             $this->error('address.errors','Not vlaid address id');
             return false;
         }
+
+        // check user access
+        $this->requireUser($address->user_id);
+
 
         $country = Model::Country('address');
         if (empty($countryCode) == false) {

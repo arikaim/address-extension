@@ -50,6 +50,8 @@ class Address extends Extension
         $this->addApiRoute('GET','/api/address/country/list','AddressApi','getCountryList','session');
         $this->addApiRoute('GET','/api/address/city/list/{data_field}/[{query}]','AddressApi','getCityList','session');
         $this->addApiRoute('GET','/api/address/state/list/[{country_code}]','AddressApi','getStateList','session');
+        $this->addApiRoute('PUT','/api/address/map/update','AddressApi','updateMap','session');    
+
         // city api 
         $this->addApiRoute('GET','/api/address/cities[/{country}[/{page:\d+}[/{perPage:\d+}]]]','CityApi','getCities',['session','token']);
         $this->addApiRoute('POST','/api/address/city','CityApi','add',['session','token']);
