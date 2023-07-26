@@ -50,7 +50,7 @@ class GoogleMapsDriver implements DriverInterface
                 ->title('Api Key')
                 ->type('text')
                 ->default('')
-                ->required(true);
+                ->required(false);
         });       
     }
 }
