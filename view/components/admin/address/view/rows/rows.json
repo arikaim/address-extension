@@ -3,6 +3,10 @@
         "delete": {      
             "content": "Delete",          
             "title": "Delete ad"
+        },
+        "map": {      
+            "content": "Map",          
+            "title": "Map"
         }  
     }    
 }

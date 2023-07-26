@@ -71,6 +71,17 @@ function AddressView() {
                 params: { uuid: uuid }
             }); 
         });
+
+        arikaim.ui.button('.map-button',function(element) {
+            var uuid = $(element).attr('uuid');
+            $('#address_details').show();
+
+            arikaim.page.loadContent({
+                id: 'address_details',
+                component: 'address::admin.address.map',
+                params: { uuid: uuid }
+            }); 
+        });
     }
 }
 

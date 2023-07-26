@@ -13,9 +13,11 @@
             <button class="ui icon mini basic button edit-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
                 <i class="icon edit"></i>
             </button> 
-            <button class="ui icon mini basic button edit-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
-                <i class="icon edit"></i>
+            {% if item.hasMapLocation() == true %}
+            <button class="ui icon mini basic button map-button" {{ buttons.map.title|attr('title') }} uuid="{{ item.uuid }}">
+                <i class="icon map"></i>
             </button> 
+            {% endif %}
             <button class="ui icon mini basic button details-button" {{ buttons.details.title|attr('title') }} uuid="{{ item.uuid }}" data-title="{{ item.title }}">
                 <i class="icon info"></i>
             </button> 

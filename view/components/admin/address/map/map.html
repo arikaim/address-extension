@@ -1,0 +1,13 @@
+{% if uuid is not empty %}
+    {% set address = createModel('Address','address').findById(uuid) %}  
+{% endif %}
+{% component 'semantic~panel' %}
+<div class="flex flex-row items-center">
+    <div class="ui basic mini button fluid" title="{{ labels.latitude }}">
+        {{ address.latitude }}
+    </div>
+    <div class="ui basic mini button fluid" title="{{ labels.longitude }}">
+        {{ address.longitude }}
+    </div>
+</div>
+{% endcomponent %}
