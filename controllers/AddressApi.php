@@ -38,7 +38,10 @@ class AddressApi extends ApiController
         }
 
         // check user access
-        $this->requireUser($address->user_id);
+        if (empty($address->user_id) == false) {
+            $this->requireUserOrControlPanel($address->user_id);
+        }
+        
 
         $address->update([
             'latitude'  => (empty($latitude) == true) ? null : $latitude,
