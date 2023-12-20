@@ -51,18 +51,6 @@ trait AddressRelation
      */
     public function isEmptyAddress(): bool
     {
-        foreach ($this->address->getFillable() as $column) {
-
-            if (\in_array($column,['id','uuid','user_id','latitude','longitude','date_created','date_updated']) == true) {              
-                continue;
-            }
-
-            if (empty($this->address->attributes[$column] ?? null) == false) {         
-                return false;
-            }
-
-        }
-
-        return true;
+        return $this->address->isEmpty();
     }
 }

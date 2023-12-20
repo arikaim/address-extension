@@ -112,6 +112,25 @@ class Address extends Model implements ContentProviderInterface
     protected $contentProviderTitle = 'Address';
 
     /**
+     * Return  tru eif address is empty
+     *
+     * @return boolean
+     */
+    public function isEmpty(): bool
+    {
+        foreach ($this->getFillable() as $column) {
+            if (\in_array($column,['id','uuid','user_id','latitude','longitude','date_created','date_updated']) == true) {              
+                continue;
+            }
+            if (empty($this->attributes[$column] ?? null) == false) {         
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Return true if address has map location
      *
      * @return boolean
