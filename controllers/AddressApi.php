@@ -42,7 +42,6 @@ class AddressApi extends ApiController
             $this->requireUserOrControlPanel($address->user_id);
         }
         
-
         $address->update([
             'latitude'  => (empty($latitude) == true) ? null : $latitude,
             'longitude' => (empty($longitude) == true) ? null : $longitude, 
@@ -74,10 +73,6 @@ class AddressApi extends ApiController
             $this->error('address.errors','Not vlaid address id');
             return false;
         }
-
-        // check user access
-        $this->requireUser($address->user_id);
-
 
         $country = Model::Country('address');
         if (empty($countryCode) == false) {
