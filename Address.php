@@ -51,17 +51,9 @@ class Address extends Extension
         $this->addApiRoute('GET','/api/address/city/list/{data_field}/[{query}]','AddressApi','getCityList','session');
         $this->addApiRoute('GET','/api/address/state/list/[{country_code}]','AddressApi','getStateList','session');
         $this->addApiRoute('PUT','/api/address/map/update','AddressApi','updateMap','session');    
-
-        // city api 
+        // City api 
         $this->addApiRoute('GET','/api/address/cities[/{country}[/{page:\d+}[/{perPage:\d+}]]]','CityApi','getCities',['session','token']);
         $this->addApiRoute('POST','/api/address/city','CityApi','add',['session','token']);
-
-        // Create db tables      
-        $this->createDbTable('CountrySchema');
-        $this->createDbTable('CitySchema');
-        $this->createDbTable('StatesSchema');
-        $this->createDbTable('AddressSchema');
-    
         // Relation map 
         $this->addRelationMap('address','Address');
         // Content Types
@@ -81,4 +73,13 @@ class Address extends Extension
         // Current map driver
         $this->createOption('map.default.driver','mapbox.map');    
     } 
+
+    public function dbInstall(): void 
+    {
+        // Create db tables      
+        $this->createDbTable('Country');
+        $this->createDbTable('City');
+        $this->createDbTable('States');
+        $this->createDbTable('Address');
+    }
 }

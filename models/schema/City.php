@@ -17,7 +17,7 @@ use Arikaim\Core\Utils\Uuid;
 /**
  * City db table
  */
-class CitySchema extends Schema  
+class City extends Schema  
 {    
     /**
      * Table name

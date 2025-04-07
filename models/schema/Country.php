@@ -16,7 +16,7 @@ use Arikaim\Core\Extension\Extension;
 /**
  * Country db table
  */
-class CountrySchema extends Schema  
+class Country extends Schema  
 {    
     /**
      * Table name

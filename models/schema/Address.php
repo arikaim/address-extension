@@ -14,7 +14,7 @@ use Arikaim\Core\Db\Schema;
 /**
  * Address db table
  */
-class AddressSchema extends Schema  
+class Address extends Schema  
 {    
     /**
      * Table name

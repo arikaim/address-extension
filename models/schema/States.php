@@ -17,7 +17,7 @@ use Arikaim\Core\Db\Model;
 /**
  * States db table
  */
-class StatesSchema extends Schema  
+class States extends Schema  
 {    
     /**
      * Table name
