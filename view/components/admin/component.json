@@ -1,4 +1,9 @@
 {
+    "include": {
+        "js": [
+            "address::admin.api"                     
+        ]
+    },
     "access": {
         "auth": "session",
         "redirect": "/admin",

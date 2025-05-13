@@ -44,7 +44,7 @@ class Country extends Schema
         $table->string('capital')->nullable(true);    
         // index
         $table->unique('code');       
-        $table->unique('name');
+        $table->index('name');
         $table->index('phone_code');
     }
 
@@ -68,7 +68,7 @@ class Country extends Schema
     {
         $items = Extension::loadJsonConfigFile('countries.json','address');
        
-        $seed->createFromArray(['name'],$items,function($item) {
+        $seed->createFromArray(['code'],$items,function($item) {
             $item['uuid'] = Uuid::create();
           
             return $item;
