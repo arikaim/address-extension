@@ -1,0 +1,65 @@
+{% set item_class = item_class|default('font-bold text-sm') %}
+{% if uuid is not empty %}
+    {% set address = createModel('Address','address').findById(uuid) %}
+{% endif %}
+
+{% if address != null and address.isEmpty() == false %}
+<div
+    id="{{ component_id }}"
+    class="{{ class }}">
+    {% if hide_name != true %}
+    <div class="flex flex-row">
+        <div class="{{ item_class }}">
+            {{ address.first_name }}
+        </div>
+        <div class="pl-1 {{ item_class }}">
+            {{ address.last_name }}
+        </div>
+    </div>
+    {% endif %}    
+    {% if address.address is not empty %}   
+    <div class="{{ item_class }}">
+        {{ address.address }}
+    </div>
+    {% endif %}
+    {% if address.address_2 is not empty %}
+    <div class="{{ item_class }}">
+        {{ address.address_2 }}
+    </div>
+    {% endif %}
+    <div class="flex flex-row">
+        {% if address.city.id is not empty or address.custom_city is not empty %}   
+        <div class="{{ item_class }}">                   
+            {{ address.city.id|default(address.custom_city) }}
+        </div>
+        {% endif %}    
+        {% if address.state.id is not empty %}
+        <div class="{{ item_class }}">
+            , {{ address.state.code }}
+        </div>           
+        {% endif %}
+        {% if address.zip_code is not empty %}                
+        <div class="{{ item_class }}">
+            , {{ address.zip_code }}
+        </div>           
+        {% endif %}        
+    </div>
+    {% if address.country.id is not empty %}
+    <div class="{{ item_class }}">
+        {{ address.country.name }}
+    </div>           
+    {% endif %}    
+    <div class="flex flex-row">
+        {% if address.phone is not empty %}               
+        <div class="{{ item_class }}">
+            {{ address.phone }}
+        </div>        
+        {% endif %}
+        {% if address.email is not empty %}           
+        <div class="{{ item_class }}">
+            , {{ address.email }}
+        </div>           
+        {% endif %}
+    </div>  
+</div>
+{% endif %}
