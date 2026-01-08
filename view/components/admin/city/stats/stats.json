@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "Stats",
-        "icon": "chart bar outline"
-    },
+    "title": "Stats",      
+    "icon": "icons~chart",
     "labels": {
         "total": "Total Cities"
     }

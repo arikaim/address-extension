@@ -1,6 +1,5 @@
 {
-    "labels": {
-        "view":  "View",                      
+    "labels": {     
         "add": "Add",  
         "import": "Import",  
         "stats": "Stats",  

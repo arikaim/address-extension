@@ -1,3 +1,8 @@
-<div class="ui segment">    
-    {{ component('content::item',{ content_type: 'address', content_id: uuid, close_button: true }) }}      
-</div>
+{% component 'system:admin.panel' %}
+    {{  component('content::item',{ 
+            content_type: 'address', 
+            content_id: uuid, 
+            close_button: true 
+        }) 
+    }}      
+{% endcomponent %}

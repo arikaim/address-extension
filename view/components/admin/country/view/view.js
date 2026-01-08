@@ -12,8 +12,6 @@ function CountryView() {
     this.init = function() {
         this.loadMessages('address::admin.country');
         
-        paginator.init('country_rows');
-
         search.init({
             id: 'country_rows',
             component: 'address::admin.country.view.rows',
@@ -21,17 +19,18 @@ function CountryView() {
         },'country');
         
         arikaim.events.on('country.search.load',function(result) {      
-            paginator.reload();
             self.initRows();    
         },'countrySearch');   
+
+        this.initRows();
     };
 
     this.initRows = function() {    
-        $('.status-dropdown').dropdown({
-            onChange: function(value) {
-                var uuid = $(this).attr('uuid');
-                countryControlPanel.setStatus(uuid,value);               
-            }
+        $('.status-dropdown').on('change', function() {
+            var value = $(this).val();
+            var uuid = $(this).attr('uuid');
+
+            countryControlPanel.setStatus(uuid,value);               
         });
 
         arikaim.ui.button('.delete-country-button',function(element) {
@@ -51,8 +50,7 @@ function CountryView() {
 
         arikaim.ui.button('.edit-country-button',function(element) {
             var uuid = $(element).attr('uuid');
-            arikaim.ui.setActiveTab('#country_edit','.country-tab-item');
-
+            
             arikaim.page.loadContent({
                 id: 'country_content',
                 component: 'address::admin.country.edit',

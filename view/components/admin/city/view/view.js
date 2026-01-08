@@ -11,9 +11,8 @@ function CityView() {
 
     this.init = function() {
         this.loadMessages('address::admin.city');
+        arikaim.ui.loadComponentButton('.city-action');
 
-        paginator.init('city_rows');  
-        
         search.init({
             id: 'city_rows',
             component: 'address::admin.city.view.rows',
@@ -27,11 +26,11 @@ function CityView() {
     };
 
     this.initRows = function() {    
-        $('.status-dropdown').dropdown({
-            onChange: function(value) {
-                var uuid = $(this).attr('uuid');
-                cityControlPanel.setStatus(uuid,value);               
-            }
+        $('.status-dropdown').on('change', function() {
+            var value = (this).val();
+            var uuid = $(this).attr('uuid');
+
+            cityControlPanel.setStatus(uuid,value);                          
         });
 
         arikaim.ui.button('.delete-button',function(element) {
@@ -51,10 +50,9 @@ function CityView() {
 
         arikaim.ui.button('.edit-button',function(element) {
             var uuid = $(element).attr('uuid');
-            arikaim.ui.setActiveTab('#city_edit');
 
             arikaim.page.loadContent({
-                id: 'city_content',
+                id: 'city_details',
                 component: 'address::admin.city.edit',
                 params: { uuid: uuid }
             }); 

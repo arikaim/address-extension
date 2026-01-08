@@ -2,7 +2,7 @@
     {% set state = createModel('State','address').findById(uuid) %} 
 {% endif %}
 
-<form class="ui equal width form" id="state_form">  
+<form class="form" id="state_form">  
     <input type="hidden" name="uuid" id="uuid" value="{{ uuid }}">    
     <div class="field required">
         <label>{{ fields.name.label }}</label>
@@ -24,6 +24,6 @@
             <input type="text" name="code" id="code" {{ fields.code.placeholder|attr('placeholder') }} value="{{ state.code }}">          
         </div> 
     </div>
-                          
-    {{ component('semantic~form.footer') }}   
+                             
+    {{ component('system:form.footer') }}   
 </form>

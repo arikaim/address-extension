@@ -1,7 +1,4 @@
 {   
-    "title": {
-        "content": "Edit Address",
-        "icon": "edit"
-    },
-    "warning": "Address not selected."    
+    "title": "Edit Address",        
+    "icon": "icons~edit"
 }

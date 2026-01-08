@@ -12,13 +12,11 @@ function AddressControlPanel() {
         return arikaim.put('/api/admin/address/update',data,onSuccess,onError);          
     };
 
-    this.setStatus = function(uuid, status, onSuccess, onError) {
-        var data = {
+    this.setStatus = function(uuid, status, onSuccess, onError) { 
+        return arikaim.put('/api/admin/address/status',{
             uuid: uuid,
             status: status
-        };
-        
-        return arikaim.put('/api/admin/address/status',data,onSuccess,onError);          
+        },onSuccess,onError);          
     };
 }
 

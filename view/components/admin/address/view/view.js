@@ -11,9 +11,8 @@ function AddressView() {
 
     this.init = function() {
         this.loadMessages('address::admin.address');
+        arikaim.ui.loadComponentButton('.create-address');
 
-        paginator.init('address_rows');   
-        
         search.init({
             id: 'address_rows',
             component: 'address::admin.address.view.rows',
@@ -25,14 +24,17 @@ function AddressView() {
             self.initRows();    
         },'addressSearch');  
 
+        this.initRows();  
     };
 
     this.initRows = function() {    
-        $('.status-dropdown').dropdown({
-            onChange: function(value) {
-                var uuid = $(this).attr('uuid');
-                addressControlPanel.setStatus(uuid,value);               
-            }
+        arikaim.ui.loadComponentButton('.address-action');
+
+        $('.status-dropdown').on('change', function() {
+            var value = $(this).val();
+            var uuid = $(this).attr('uuid');
+            
+            addressControlPanel.setStatus(uuid,value);               
         });
 
         arikaim.ui.button('.delete-button',function(element) {
@@ -48,39 +50,6 @@ function AddressView() {
                     arikaim.ui.table.removeRow('#row_' + result.uuid);     
                 });
             });
-        });
-
-        arikaim.ui.button('.edit-button',function(element) {
-            var uuid = $(element).attr('uuid');
-            arikaim.ui.setActiveTab('#edit_address','.address-tab-item');
-
-            arikaim.page.loadContent({
-                id: 'address_content',
-                component: 'address::admin.address.edit',
-                params: { uuid: uuid }
-            }); 
-        });
-
-        arikaim.ui.button('.details-button',function(element) {
-            var uuid = $(element).attr('uuid');
-            $('#address_details').show();
-
-            arikaim.page.loadContent({
-                id: 'address_details',
-                component: 'address::admin.address.details',
-                params: { uuid: uuid }
-            }); 
-        });
-
-        arikaim.ui.button('.map-button',function(element) {
-            var uuid = $(element).attr('uuid');
-            $('#address_details').show();
-
-            arikaim.page.loadContent({
-                id: 'address_details',
-                component: 'address::admin.address.map',
-                params: { uuid: uuid }
-            }); 
         });
     }
 }

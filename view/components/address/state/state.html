@@ -6,21 +6,28 @@
 {% set items = state.countryQuery(coutry_code).orderBy('country_code').get() %}
 {% set data_field = data_field|default('uuid') %}
 
-<div class="ui search selection dropdown state-dropdown {{ class }}" 
+<select 
+    {{ rule|attr('rule') }}
+    name="{{ name }}"
+    class="{{ theme.form.select }} state-dropdown {{ class }} {{ size }}" 
     {{ title|attr('title') }} 
     data-field="{{ data_field }}"
     id="{{ id|default('state_dropdown') }}">    
-    <input name="{{ name }}" type="hidden" value="{{ item_selected[data_field] }}">  
-    <div class="text">
-        {{ item_selected.name|default(labels.choose) }}
-    </div>  
-    <i class="icon dropdown"></i> 
-    <div class="menu">        
-        {% for item in items %}
-        <div class="item" data-value="{{ item[data_field] }}">  
-            <i class="{{ item.country_code|lower }} flag"></i>
+    
+    {% if hide_empty != true %}
+        <option 
+            {{ (item_selected[data_field] is empty) ? 'selected' : '' }}
+            value="">  
+            {{ labels.choose }}
+        </option>   
+    {% endif %}
+    
+    {% for item in items %}
+        <option 
+            {{ (item[data_field] == item_selected[data_field]) ? 'selected' : '' }}
+            value="{{ item[data_field] }}">           
             {{ item.name }}
-        </div>   
-        {% endfor %}          
-    </div>
-</div>
+        </option>   
+    {% endfor %}          
+    
+</select>

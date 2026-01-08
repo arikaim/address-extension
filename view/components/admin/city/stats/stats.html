@@ -1,16 +1,13 @@
 {% set model = createModel('City','address') %}
-<div>
-    {{ component('semantic~segment-title',{ title: title.content, icon: title.icon }) }}
-    <div class="ui segment">
-        <div class="mt-4">
-            <div class="ui horizontal mini statistic">
-                <div class="value">
-                    {{ model.count() }}
-                </div>
-                <div class="label">
-                    {{ labels.total }}
-                </div>
+{% component 'system:admin.panel' %}
+    <div class="mt-4">
+        <div class="stat">
+            <div class="stat-title">
+                {{ labels.total }}
             </div>
+            <div class="stat-value">
+                {{ model.count() }}
+            </div>         
         </div>
     </div>
-</div>
+{% endcomponent %}

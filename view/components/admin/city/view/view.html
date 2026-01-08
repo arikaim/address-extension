@@ -1,30 +1,47 @@
-<div class="ui segment">
-    <div class="ui stackable three column grid">
-        <div class="column left aligned">
-            {{ component('semantic~search.form',{ namespace: 'city' }) }}
-        </div>  
-        <div class="column">
-        </div> 
-        <div class="column right aligned">       
-            {{ component('semantic~paginator.dropdown',{ namespace: 'city' }) }}
-        </div>
+<div class="{{ theme.panel }} flex flex-row items-center">
+    <div class="join">
+        <button 
+            mountTo="city_details"
+            component="address::admin.city.add"
+            class="join-item {{ theme.buttons.green }} city-action">
+            {{ buttons.create }}
+        </button>
+        <!-- 
+        <button 
+            mountTo="city_details"
+            component="address::admin.city.import"
+            class="join-item {{ theme.buttons.blue }} city-action">
+            {{ buttons.import }}
+        </button>
+        -->
+        <button 
+            mountTo="city_details"
+            component="address::admin.city.stats"
+            class="join-item {{ theme.buttons.default }} city-action">
+            {{ buttons.stats }}
+        </button>
+    </div>
+    <div class="ml-4">
+        {{ component('system:admin.search.form',{ namespace: 'city' }) }}        
     </div>
 </div>
-<div class="ui segment">
-    <table class="ui compact stackable selectable borderless basic table">
-        <thead class="table-head">
+<div class="mt-4 {{ theme.panel }}">
+    <table class="{{ theme.table.default }}">
+        <thead>
             <tr>              
-                <th class="one wide collapsing left aligned">{{ columns.action }}</th>
-                <th class="two wide">{{ columns.status }}</th>                                     
-                <th class="two wide">{{ columns.title }}</th>         
-                <th class="">{{ columns.country }}</th>                                                            
+                <th class="w-32">{{ columns.action }}</th>
+                <th class="w-32">{{ columns.status }}</th>                                     
+                <th>{{ columns.title }}</th>         
+                <th>{{ columns.country }}</th>                                                            
             </tr>
         </thead>
-        <tbody id="city_rows" component="address::admin.city.view.rows" namespace="city">
+        <tbody
+            id="city_rows" 
+            component="address::admin.city.view.rows" 
+            namespace="city">
             {{ component('address::admin.city.view.rows') }}   
         </tbody>
     </table>
-    <div class="mt-2">
-        {{ component('semantic~paginator',{ namespace: 'city' }) }}
+    <div class="mt-2 ml-2" id="paginator">
     </div>
 </div>

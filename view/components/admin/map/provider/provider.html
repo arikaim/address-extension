@@ -2,19 +2,17 @@
 {% if selected is not empty %}
     {% set item_selected = items[selected] %}
 {% endif %}
-<div class="ui dropdown map-provier-dropdown {{ class|default('selection') }}" 
+<select 
+    {{ rule|attr('rule') }}
+    name="{{ name }}"
+    class="{{ theme.form.select }} {{ size|default('select-sm') }} map-provier-dropdown {{ class }}" 
     {{ title|attr('title') }} 
     id="{{ id|default('map_provider_dropdown') }}">    
-    <input {{ rule|attr('rule') }} name="{{ name }}" type="hidden" value="{{ selected }}">  
-    <div class="text">
-        {{ item_selected.title|default(labels.select) }}
-    </div>  
-    <i class="icon dropdown"></i> 
-    <div class="menu">        
-        {% for key, item in items %}
-        <div class="item" data-value="{{ key }}">             
-            {{ item.title }}
-        </div>   
-        {% endfor %}          
-    </div>
-</div>
+    
+    {% for key, item in items %}
+    <option 
+        value="{{ key }}">             
+        {{ item.title }}
+    </option>   
+    {% endfor %}             
+</select>

@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "Import",
-        "icon": "file import"
-    },
+    "title": "Import",       
+    "icon": "icons~document",
     "labels": {   
         "driver": "Data Api",
         "country": "Country"   

@@ -1,8 +1,14 @@
 {% set current_map_driver = getOption('map.default.driver') %}
-<div class="ui segment">
-    <span class="font-bold px-2">{{ labels.provider }}</span>
-    {{ component('address::admin.map.provider',{ selected: provider|default(current_map_driver) }) }}   
+<div class="{{ theme.panel }}">
+    <div class="w-64 flex flex-row items-center">
+        <span class="font-bold mx-2">
+            {{ labels.provider }}
+        </span>
+        {{ component('address::admin.map.provider',{ selected: provider|default(current_map_driver) }) }}   
+    </div>
 </div>
-<div class="p-2 w-full h-96 flex flex-grow" id="map_content">
+<div 
+    class="p-2 w-full h-96 flex flex-grow" 
+    id="map_content">
     {{ component('address::map',{ class: 'w-full h-full', provider: provider|default(current_map_driver) }) }}
 </div>

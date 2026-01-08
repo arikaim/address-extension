@@ -1,31 +1,33 @@
-<div class="ui segment">
-    <div class="ui stackable three column grid">        
-        <div class="column left aligned">
-            {{ component('semantic~search.form',{ namespace: 'country' }) }}
-        </div>  
-        <div class="column">
-        </div>     
-        <div class="column right aligned">       
-            {{ component('semantic~paginator.dropdown',{ namespace: 'country' }) }}
-        </div>
-    </div>
+<div class="{{ theme.panel }} flex flex-row items-center">
+    <button 
+        mountTo="country_details"
+        component="address::admin.country.add"
+        class="join-item {{ theme.buttons.green }} country-create">
+        {{ buttons.create }}
+    </button>
+    <div class="ml-4">
+        {{ component('system:admin.search.form',{ namespace: 'country' }) }}
+    </div>   
 </div>
-<div class="ui segment">
+<div class="mt-4 {{ theme.panel }}">
     <table class="ui compact stackable selectable borderless basic table">
         <thead class="table-head">
             <tr>              
-                <th class="one wide collapsing left aligned ">{{ columns.action }}</th>
-                <th class="two wide ">{{ columns.status }}</th>                                     
+                <th class="w-32">{{ columns.action }}</th>
+                <th class="w-32">{{ columns.status }}</th>                                     
                 <th class="">{{ columns.name }}</th>         
-                <th class="two wide ">{{ columns.code }}</th>  
-                <th class="two wide ">{{ columns.phone_code }}</th>                                                            
+                <th class="">{{ columns.code }}</th>  
+                <th class="">{{ columns.phone_code }}</th>                                                            
             </tr>
         </thead>
-        <tbody id="country_rows" component="address::admin.country.view.rows" namespace="country">
+        <tbody 
+            id="country_rows" 
+            component="address::admin.country.view.rows" 
+            namespace="country">
             {{ component('address::admin.country.view.rows') }}   
         </tbody>
     </table>
-    <div class="mt-2">
-        {{ component('semantic~paginator',{ namespace: 'country' }) }}
+    <div class="mt-2 ml-2">
+       
     </div>
 </div>

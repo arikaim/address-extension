@@ -1,31 +1,24 @@
-<div class="ui segment">
-    <div class="ui stackable three column grid">        
-        <div class="column left aligned">
-            {{ component('semantic~search.form',{ namespace: 'state' }) }}
-        </div>  
-        <div class="column">
-        </div>     
-        <div class="column right aligned">       
-            {{ component('semantic~paginator.dropdown',{ namespace: 'state' }) }}
-        </div>
-    </div>
+<div class="{{ theme.panel }}">      
+    {{ component('system:admin.search.form',{ namespace: 'state' }) }}       
 </div>
-<div class="ui segment">
-    <table class="ui compact stackable selectable borderless basic table">
-        <thead class="table-head">
+<div class="mt-4 {{ theme.panel }}">
+    <table class="{{ theme.table.default }}">
+        <thead>
             <tr>              
-                <th class="one wide collapsing left aligned ">{{ columns.action }}</th>
-                <th class="two wide ">{{ columns.status }}</th>   
-                <th class="two wide ">{{ columns.code }}</th>                                        
+                <th class="w-32">{{ columns.action }}</th>
+                <th class="w-32">{{ columns.status }}</th>   
+                <th class="">{{ columns.code }}</th>                                        
                 <th>{{ columns.title }}</th>     
-                <th class="four wide ">{{ columns.country }}</th>                                                                              
+                <th class="">{{ columns.country }}</th>                                                                              
             </tr>
         </thead>
-        <tbody id="states_rows" component="address::admin.state.view.rows" namespace="state">
+        <tbody 
+            id="states_rows" 
+            component="address::admin.state.view.rows" 
+            namespace="state">
             {{ component('address::admin.state.view.rows') }}   
         </tbody>
     </table>
-    <div class="mt-2" id="paginator">
-        {{ component('semantic~paginator',{ namespace: 'state' }) }}
+    <div class="mt-2 ml-2" id="paginator">     
     </div>
 </div>

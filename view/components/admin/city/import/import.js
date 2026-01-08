@@ -1,9 +1,8 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
-
     $('.city-dropdown').on('change',function() {
-        var selected = $('.city-dropdown').dropdown("get value");
+        var selected = $('.city-dropdown').val();
         
         arikaim.page.loadContent({
             id: 'city_form_content',

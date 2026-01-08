@@ -1,5 +1,5 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
-    arikaim.ui.tab();  
+    arikaim.ui.form.addRules('#city_form',{});    
 });

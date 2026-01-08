@@ -1,13 +1,42 @@
-{{  component('semantic~tabs',{ 
+{{  component('system:admin.tabs',{ 
         items: [ 
-            { id: 'address_button', title: labels.address, component: 'address::admin.address', icon: 'address card outline', active: true },     
-            { id: 'city_button', title: labels.city, component: 'address::admin.city', icon: 'city' },   
-            { id: 'country_button', title: labels.country, component: 'address::admin.country', icon: 'flag outline' },
-            { id: 'states_button', title: labels.state, component: 'address::admin.state', icon: 'flag usa' },
-            { id: 'map_button', title: labels.map, component: 'address::admin.map', icon: 'map' },  
-            { id: 'settings_button', title: labels.settings, component: 'address::admin.settings', icon: 'cogs' }           
+            { 
+                title: labels.address, 
+                component: 'address::admin.address', 
+                svg_icon: 'icons~address', 
+                active: true 
+            },     
+            { 
+                title: labels.city, 
+                component: 'address::admin.city', 
+                svg_icon: 'icons~info', 
+            },   
+            { 
+                title: labels.country, 
+                component: 'address::admin.country', 
+                svg_icon: 'icons~info'
+            },
+            { 
+                title: labels.state, 
+                component: 'address::admin.state', 
+                svg_icon: 'icons~info'
+            },
+            { 
+                title: labels.map,
+                component: 'address::admin.map', 
+                svg_icon: 'icons~map'
+            },  
+            { 
+                title: labels.settings, 
+                component: 'address::admin.settings', 
+                svg_icon: 'icons~cog' 
+            }           
         ],
-        menu: { extension: 'address' },
-        content: { component: 'address::admin.address' } 
+        menu: { 
+            extension: 'address' 
+        },
+        content: { 
+            component: 'address::admin.address' 
+        } 
     })
 }}

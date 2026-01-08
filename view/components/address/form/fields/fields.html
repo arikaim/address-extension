@@ -1,102 +1,174 @@
 {% set address = (content_item is not empty) ? content_item : address %}
 {% if show_names == true %}
-    <div class="two fields">
-        <div class="field">
-            <label>{{ fields.first_name.label }}</label>
+    <div class="{{ theme.form.fields }}">
+        <div class="{{ theme.form.field }}">
+            <label class="{{ theme.form.label }}">
+                {{ fields.first_name.label }}
+            </label>
             <input 
+                class="{{ theme.form.input }}"
                 {{ rules.first_name|attr('rule') }} 
-                name="first_name" id="first_name" 
+                name="first_name" 
+                id="first_name" 
                 {{ fields.first_name.placeholder|attr('placeholder') }} 
                 value="{{ address.first_name }}">
         </div> 
-        <div class="field">
-            <label>{{ fields.last_name.label }}</label>
+        <div class="{{ theme.form.field }}">
+            <label class="{{ theme.form.label }}">
+                {{ fields.last_name.label }}
+            </label>
             <input 
+                class="{{ theme.form.input }}"
                 {{ rules.last_name|attr('rule') }} 
-                name="last_name" id="last_name" 
+                name="last_name" 
+                id="last_name" 
                 {{ fields.last_name.placeholder|attr('placeholder') }} 
                 value="{{ address.last_name }}">
         </div>
     </div>
 {% endif %}
-<div class="two fields">
-    <div class="field">       
-        <label>{{ fields.country.label }}</label>
+<div class="{{ theme.form.fields }}">
+    <div class="{{ theme.form.field }}">       
+        <label class="{{ theme.form.label }}">
+            {{ fields.country.label }}
+        </label>
         {{  component('address::address.country',{ 
                 selected: address.country_id, 
                 data_field: 'id',                    
                 name: 'country_id',
-                class: 'fluid clearable' 
+                class: '' 
             }) 
         }} 
     </div> 
-    <div class="field" id="state_field">
-        <label>{{ fields.state.label }}</label>
+    <div class="{{ theme.form.field }}" id="state_field">
+        <label class="{{ theme.form.label }}">
+            {{ fields.state.label }}
+        </label>
         {{  component('address::address.state',{ 
                 selected: address.state_id, 
                 data_field: 'id',
                 name: 'state_id',
-                class: 'fluid clearable' 
+                class: '' 
             }) 
         }} 
     </div>
 </div>
-<div class="two fields">
-    <div class="field">
-        <label>{{ fields.city.label }}</label>
+<div class="{{ theme.form.fields }}">
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.city.label }}
+        </label>
         <span class="{{ (address.custom_city is empty) ? '' : 'hidden' }}" id="city_input">
-            <div class="ui right action input">
+            <div class="join">
                 {{  component('address::address.city',{ 
                         selected: address.city_id, 
                         data_field: 'id',
                         name: 'city_id',
-                        class: 'fluid clearable' 
+                        class: 'join-item' 
                     }) 
                 }} 
-                <a class="ui basic icon button add-custom-city" title="{{ buttons.city }}">
-                    <i class="icon green plus"></i>
+                <a 
+                    class="join-item {{ theme.form.button }} add-custom-city" 
+                    title="{{ buttons.city }}">
+                    {{ component('icons~plus',theme.form.icon,'svg') }}                 
                 </a>
             </div>  
         </span>
         <span class="{{ (address.custom_city is empty) ? 'hidden' : '' }}" id="custom_city_input">
-            <div class="ui right action input">
-                <input type="text" name="custom_city" id="custom_city" value="{{ address.custom_city }}">
-                <a class="ui basic icon button cancel-custom-city" title="{{ buttons.cancel }}">
-                    <i class="icon orange times"></i>
+            <div class="join">
+                <input 
+                    class="join-item {{ theme.form.input }}"                   
+                    type="text" 
+                    name="custom_city" 
+                    id="custom_city" 
+                    value="{{ address.custom_city }}">
+                <a 
+                    class="h-auto join-item {{ theme.form.button }} cancel-custom-city" 
+                    title="{{ buttons.cancel }}">
+                    {{ component('icons~close',theme.form.icon,'svg') }}   
                 </a>
             </div>
         </span>       
     </div> 
-    <div class="field">
-        <label>{{ fields.zip.label }}</label>
-        <input name="zip_code" id="zip_code" {{ fields.zip.placeholder|attr('placeholder') }} value="{{ address.zip_code }}">
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.zip.label }}
+        </label>
+        <input 
+            class="{{ theme.form.input }}"
+            name="zip_code" 
+            id="zip_code" 
+            {{ fields.zip.placeholder|attr('placeholder') }} 
+            value="{{ address.zip_code }}">
     </div>
 </div>
 <div class="field required">
-    <label>{{ fields.address.label }}</label>
-    <input rule="empty" name="address" id="address" {{ fields.address.placeholder|attr('placeholder') }} value="{{ address.address }}">
+    <label class="{{ theme.form.label }}">
+        {{ fields.address.label }}
+    </label>
+    <input 
+        class="{{ theme.form.input }}"
+        rule="empty" 
+        name="address" 
+        id="address" 
+        {{ fields.address.placeholder|attr('placeholder') }} 
+        value="{{ address.address }}">
 </div>  
-<div class="field">
-    <label>{{ fields.address2.label }}</label>
-    <input type="text" name="address_2" id="address_2" {{ fields.address2.placeholder|attr('placeholder') }} value="{{ address.address_2 }}">  
+<div class="{{ theme.form.field }}">
+    <label class="{{ theme.form.label }}">
+        {{ fields.address2.label }}
+    </label>
+    <input 
+        class="{{ theme.form.input }}"
+        type="text" 
+        name="address_2" 
+        id="address_2" 
+        {{ fields.address2.placeholder|attr('placeholder') }} 
+        value="{{ address.address_2 }}">  
 </div>        
-<div class="two fields">
-    <div class="field">
-        <label>{{ fields.email.label }}</label>
-        <input rule="email" optional="true" name="email" id="email" {{ fields.email.placeholder|attr('placeholder') }} value="{{ address.email }}">
+<div class="{{ theme.form.fields }}">
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.email.label }}
+        </label>
+        <input  
+            class="{{ theme.form.input }}"
+            rule="email" 
+            optional="true" 
+            name="email" 
+            id="email" 
+            {{ fields.email.placeholder|attr('placeholder') }} 
+            value="{{ address.email }}">
     </div>
-    <div class="field">
-        <label>{{ fields.phone.label }}</label>
-        <input name="phone" id="phone" optional="true" {{ fields.phone.placeholder|attr('placeholder') }} value="{{ address.phone }}">
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.phone.label }}
+        </label>
+        <input 
+            class="{{ theme.form.input }}"
+            name="phone" 
+            id="phone" 
+            optional="true" 
+            {{ fields.phone.placeholder|attr('placeholder') }} 
+            value="{{ address.phone }}">
     </div>
 </div>       
 {% if show_website == true %}
-<div class="two fields">
-    <div class="field">
-        <label>{{ fields.website.label }}</label>
-        <input rule="url" optional="true" name="website" id="website" {{ fields.website.placeholder|attr('placeholder') }} value="{{ address.website }}">
+<div class="{{ theme.form.fields }}">
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.website.label }}
+        </label>
+        <input 
+            class="{{ theme.form.input }}"
+            rule="url" 
+            optional="true" 
+            name="website" 
+            id="website" 
+            {{ fields.website.placeholder|attr('placeholder') }} 
+            value="{{ address.website }}">
     </div>
-    <div class="field">
+    <div class="{{ theme.form.field }}">
     </div>
 </div>
 {% endif %}

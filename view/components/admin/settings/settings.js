@@ -5,9 +5,8 @@ arikaim.component.onLoaded(function() {
         return drivers.loadConfig(name,'settings_content');           
     },'driverConfig'); 
 
-    $('#drivers_dropdown').dropdown({
-        onChange: function(value) {                               
-            options.save('map.default.driver',value);       
-        }
+    $('#drivers_dropdown').on('change', function() {
+        var value = $(this).val();
+        options.save('map.default.driver',value);              
     });
 });

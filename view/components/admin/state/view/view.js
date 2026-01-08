@@ -12,26 +12,25 @@ function StatesView() {
     this.init = function() {   
         this.loadMessages('address::admin.state');
 
-        paginator.init('states_rows');  
-        
         search.init({
             id: 'states_rows',
             component: 'address::admin.state.view.rows',
             event: 'state.search.load'
         },'state');
         
-        arikaim.events.on('state.search.load',function(result) {      
-            paginator.reload();
+        arikaim.events.on('state.search.load',function(result) {                
             self.initRows();    
         },'stateSearch');   
+
+        this.initRows();
     };
 
     this.initRows = function() {    
-        $('.status-dropdown').dropdown({
-            onChange: function(value) {
-                var uuid = $(this).attr('uuid');
-                statesControlPanel.setStatus(uuid,value);               
-            }
+        $('.status-dropdown').on('change', function() {
+            var value = (this).val();
+            var uuid = $(this).attr('uuid');
+            
+            statesControlPanel.setStatus(uuid,value);                        
         });
 
         arikaim.ui.button('.delete-button',function(element) {
@@ -51,7 +50,7 @@ function StatesView() {
 
         arikaim.ui.button('.edit-button',function(element) {
             var uuid = $(element).attr('uuid');
-            arikaim.ui.setActiveTab('#edit_state','.states-tab-item');
+       
 
             arikaim.page.loadContent({
                 id: 'states_content',

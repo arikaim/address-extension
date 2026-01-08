@@ -1,8 +1,4 @@
 {
-    "title": {
-        "content": "View",
-        "icon": "list"              
-    },
     "columns": {
         "action": "Action",    
         "country": "Country",   
@@ -11,5 +7,8 @@
         "user": "User",
         "type": "Type",
         "address": "Address"            
+    },
+    "buttons": {
+        "create": "Create"
     }
 }

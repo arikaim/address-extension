@@ -1,41 +1,35 @@
 {% set status_filter = searchValue('status','address') %}
-<div class="ui segment">
-    <div class="ui stackable grid">
-        <div class="four wide column left aligned">
-            {{ component('semantic~search.form',{ namespace: 'address' }) }}
-        </div>
-        <div class="five wide column left aligned">           
-        </div>
-        <div class="five wide column">
-        </div>
-        <div class="two wide right aligned column">
-            {{ component('semantic~paginator.dropdown',{ namespace: 'address' }) }}
-        </div>
-    </div>
+<div class="{{ theme.panel }} flex flex-row items-center">
+    <button 
+        mountTo="address_details"
+        component="address::admin.address.add"
+        class="{{ theme.buttons.green }} create-address">
+        {{ buttons.create }}
+    </button>
+    <div class="ml-4">
+        {{ component('system:admin.search.form',{ namespace: 'address' }) }}      
+    </div>      
 </div>
-<div class="flex flex-row items-start">
-  
-    <div class="p-1 flex-grow">
-        <table class="ui compact stackable selectable basic table">
-            <thead class="table-head">
-                <tr>              
-                    <th class="two wide">{{ columns.action }}</th>
-                    <th class="two wide">{{ columns.status }}</th>                      
-                    <th class="three wide">{{ columns.country }}</th>   
-                    <th class="three wide">{{ columns.city }}</th>         
-                    <th>{{ columns.address }}</th>        
-                    <th class="three wide">{{ columns.user }}</th> 
-                    <th class="one wide">{{ columns.type }}</th>                                                      
-                </tr>
-            </thead>
-            <tbody id="address_rows" component="address::admin.address.view.rows" namespace="address">
-                {{ component('address::admin.address.view.rows') }}   
-            </tbody>
-        </table>
-        <div class="mt-2">
-            {{ component('semantic~paginator',{ namespace: 'address' }) }}
-        </div>
-    </div>
-    <div class="px-2 w-panel hidden" id="address_details">
-    </div>  
+<div class="mt-4 {{ theme.panel }}">
+    <table class="{{ theme.table.default }}">
+        <thead>
+            <tr>              
+                <th class="w-32">{{ columns.action }}</th>
+                <th class="w-32">{{ columns.status }}</th>                      
+                <th >{{ columns.country }}</th>   
+                <th >{{ columns.city }}</th>         
+                <th>{{ columns.address }}</th>        
+                <th >{{ columns.user }}</th> 
+                <th >{{ columns.type }}</th>                                                      
+            </tr>
+        </thead>
+        <tbody 
+            id="address_rows" 
+            component="address::admin.address.view.rows" 
+            namespace="address">
+            {{ component('address::admin.address.view.rows') }}   
+        </tbody>
+    </table>
+    <div class="mt-2 ml-2" id="paginator">           
+    </div>   
 </div>

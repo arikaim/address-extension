@@ -1,6 +1,7 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
+    /*
     var dataField = $('.city-dropdown').attr('data-field');
     
     $('.city-dropdown').dropdown({
@@ -11,4 +12,5 @@ arikaim.component.onLoaded(function() {
         },       
         filterRemoteData: false         
     });
+    */
 });

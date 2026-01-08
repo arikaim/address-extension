@@ -20,18 +20,12 @@ function CountryControlPanel() {
         return arikaim.put('/api/admin/address/country/update',data, onSuccess, onError);          
     };
 
-    this.setStatus = function(uuid, status, onSuccess, onError) {
-        var data = {
+    this.setStatus = function(uuid, status, onSuccess, onError) {  
+        return arikaim.put('/api/admin/address/country/status',{
             uuid: uuid,
             status: status
-        };
-        
-        return arikaim.put('/api/admin/address/country/status',data,onSuccess,onError);          
+        },onSuccess,onError);          
     };   
 }
 
 var countryControlPanel = new CountryControlPanel();
-
-arikaim.component.onLoaded(function() {
-    arikaim.ui.tab('.country-tab-item','country_content');      
-});

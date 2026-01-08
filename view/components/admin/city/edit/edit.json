@@ -1,9 +1,4 @@
 {
-    "title": {
-        "content": "Edit",
-        "icon": "edit"
-    },
-    "labels": {
-        "city": "Select City"
-    }
+    "title": "Edit",
+    "icon": "icons~edit"
 }

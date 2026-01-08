@@ -21,17 +21,11 @@ function CityControlPanel() {
     };
 
     this.setStatus = function(uuid, status, onSuccess, onError) {
-        var data = {
+        return arikaim.put('/api/admin/address/city/status',{
             uuid: uuid,
             status: status
-        };
-
-        return arikaim.put('/api/admin/address/city/status',data,onSuccess,onError);          
+        },onSuccess,onError);          
     };   
 }
 
 var cityControlPanel = new CityControlPanel();
-
-arikaim.component.onLoaded(function() {
-    arikaim.ui.tab('.city-tab-item','city_content');
-});

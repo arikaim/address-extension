@@ -2,20 +2,29 @@
 {{ createSearch('name','country','ilike:{value}%') }}
 {% set country = applySearch(country,'country') %}
 {% set items = paginate(country,'country') %}  
+
 {% for item in items.getItems() %} 
     <tr id="row_{{ item.uuid }}">
         <td>
-            <button class="ui icon mini basic button edit-country-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
-                <i class="icon edit"></i>
+            <button 
+                class="{{ theme.butons.icon }} edit-country-button" 
+                {{ buttons.edit.title|attr('title') }} 
+                uuid="{{ item.uuid }}">
+                {{ component('icons~edit',theme.icons.menu,'svg') }}
             </button> 
             <button 
-                class="ui icon mini basic button delete-country-button" 
+                class="{{ theme.butons.icon }} delete-country-button" 
                 {{ buttons.delete.title|attr('title') }} uuid="{{ item.uuid }}" data-title="{{ item.name }}">
-                <i class="icon trash orange"></i>
+                {{ component('icons~trash',theme.icons.delete,'svg') }}
             </button> 
         </td>
         <td>
-            {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}         
+            {{  component('system:admin.status.dropdown',{ 
+                    status: item.status, 
+                    uuid: item.uuid, 
+                    skip: [2,3,4,5] 
+                }) 
+            }}         
         </td>               
         <td>{{ item.name }}</td>
         <td>{{ item.code }}</td>

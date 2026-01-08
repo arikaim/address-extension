@@ -21,17 +21,11 @@ function StatesControlPanel() {
     };
 
     this.setStatus = function(uuid, status, onSuccess, onError) {
-        var data = {
+        return arikaim.put('/api/admin/address/state/status',{
             uuid: uuid,
             status: status
-        };
-
-        return arikaim.put('/api/admin/address/state/status',data,onSuccess,onError);          
+        },onSuccess,onError);          
     };  
 }
 
 var statesControlPanel = new StatesControlPanel();
-
-arikaim.component.onLoaded(function() {
-    arikaim.ui.tab('.states-tab-item','states_content');
-});

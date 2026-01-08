@@ -1,7 +1,8 @@
 {
-    "title": {
-        "content": "View",
-        "icon": "list"              
+    "buttons": {
+        "create": "Add",
+        "stats": "Stats",        
+        "import": "Import"              
     },
     "columns": {
         "action": "Action",    
