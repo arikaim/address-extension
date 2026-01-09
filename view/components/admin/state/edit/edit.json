@@ -1,9 +1,4 @@
 {
-    "title": {
-        "content": "Edit",
-        "icon": "edit"
-    },
-    "labels": {
-        "state": "Select State"
-    }
+    "title": "Edit",   
+    "icon": "icons~edit"
 }

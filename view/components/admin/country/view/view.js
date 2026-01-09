@@ -12,13 +12,19 @@ function CountryView() {
     this.init = function() {
         this.loadMessages('address::admin.country');
         
+        this.setItemsSelector('country_rows');
+        this.setItemComponentName('address::admin.country.view.item');
+
+        arikaim.ui.loadComponentButton('.country-create');
+
         search.init({
             id: 'country_rows',
             component: 'address::admin.country.view.rows',
             event: 'country.search.load'
         },'country');
         
-        arikaim.events.on('country.search.load',function(result) {      
+        arikaim.events.on('country.search.load',function(result) { 
+            arikaim.ui.getComponent('country_paginator').reload();     
             self.initRows();    
         },'countrySearch');   
 
@@ -36,23 +42,20 @@ function CountryView() {
         arikaim.ui.button('.delete-country-button',function(element) {
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
-
-            var message = arikaim.ui.template.render(self.getMessage('delete.content'),{ title: title });
-            modal.confirmDelete({ 
-                title: self.getMessage('delete.title'),
-                description: message
-            },function() {
+            var message = arikaim.ui.template.render(countryView.getMessage('delete.content'),{ title: title });
+            
+            arikaim.ui.getComponent('confirm_delete').open(function() {
                 countryControlPanel.delete(uuid,function(result) {
                     arikaim.ui.table.removeRow('#row_' + result.uuid);     
                 });
-            });
+            },message);
         });
 
         arikaim.ui.button('.edit-country-button',function(element) {
             var uuid = $(element).attr('uuid');
             
             arikaim.page.loadContent({
-                id: 'country_content',
+                id: 'country_details',
                 component: 'address::admin.country.edit',
                 params: { uuid: uuid }
             }); 

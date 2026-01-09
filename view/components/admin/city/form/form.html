@@ -24,15 +24,19 @@
             </label>
             {{  component('address::address.country',{ 
                     selected: city.country_id, 
+                    rule: 'empty',
                     data_field: 'id',
                     name: 'country_id',
-                    class: 'fluid' 
+                    class: 'select-sm' 
                 }) 
             }} 
         </div>  
-        <div class="{{ theme.form.field }}">           
+        <div class="">   
+            <label class="{{ theme.form.label }}">
+                &nbsp;
+            </label>        
             {{  component('system:form.fields.checkbox',{ 
-                    name: 'is_capital', 
+                    name: 'is_capital',                 
                     value: city.is_capital, 
                     field_label: fields.capital.label
                 }) 

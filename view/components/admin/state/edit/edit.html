@@ -1,9 +1,5 @@
-{% component 'semantic~tabs.vertical.content' %}
-    <div class="ui segment mt-4">
-        <h4>{{ labels.state }}</h4>      
-        {{ component('address::address.state',{ selected: uuid, class: 'fluid' }) }}
-    </div>    
-    <div class="mt-4" id="state_form_content">   
+{% component 'system:admin.panel' %}      
+    <div class="mt-4">   
         {% if uuid is not empty %}
             {{ component('address::admin.state.form',{ uuid: uuid }) }}
         {% endif %}

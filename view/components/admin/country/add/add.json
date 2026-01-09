@@ -1,6 +1,4 @@
 {   
-    "title": {
-        "content": "Add",
-        "icon": "plus"
-    }    
+    "title": "Add Country",
+    "icon": "icons~plus"    
 }

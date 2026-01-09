@@ -1,0 +1,56 @@
+{% if uuid is not empty %}
+    {% set item = createModel('Address','address').findById(uuid) %}
+{% endif %}
+
+<tr id="row_{{ item.uuid }}">
+    <td>
+        <button 
+            mountTo="address_details"
+            component="address::admin.address.edit"
+            class="{{ theme.buttons.icon }} address-action" 
+            {{ buttons.edit.title|attr('title') }} 
+            params="uuid:{{ item.uuid }}">
+            {{ component('icons~edit',theme.icons.menu,'svg') }}      
+        </button> 
+        {% if item.hasMapLocation() == true %}
+            <button 
+                mountTo="address_details"
+                component="address::admin.address.map"
+                class="{{ theme.buttons.icon }} address-action" 
+                {{ buttons.map.title|attr('title') }} 
+                params="uuid:{{ item.uuid }}">
+                {{ component('icons~map',theme.icons.menu,'svg') }}      
+            </button> 
+        {% endif %}
+        <button 
+            mountTo="address_details"
+            component="address::admin.address.edit"
+            class="{{ theme.buttons.icon }} address-action" 
+            {{ buttons.details.title|attr('title') }} 
+            params="uuid:{{ item.uuid }}" 
+            data-title="{{ item.title }}">
+            {{ component('icons~info',theme.icons.menu,'svg') }}      
+        </button> 
+    </td>
+    <td>
+        {{  component('system:admin.status.dropdown',{ 
+                status: item.status, 
+                uuid: item.uuid, 
+                skip: [2,3,4,5] 
+            }) 
+        }}         
+    </td>       
+    <td>{{ item.country_name }}</td>
+    <td>{{ item.city_name }}</td>
+    <td>{{ item.address }}</td>
+    <td>{{ item.user.user_name_or_email }}</td>
+    <td>
+        {% if item.type is not empty %}
+        <div class="badge badge-sm badge-outline">
+            {{ item.type }}
+        </div>   
+        {% else %}
+        ..
+        {% endif %}        
+    </td>
+</tr>

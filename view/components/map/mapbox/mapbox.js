@@ -58,5 +58,13 @@ arikaim.component.onLoaded(function() {
                 currentPositionMarker = null;
             });
         });     
+    },function(error) {
+        arikaim.ui.loadComponent({
+            mountTo: 'map_content',
+            component: 'system:admin.alert.error',
+            params: {
+                message: 'Library maps not installed'
+            }
+        });
     });
 });

@@ -1,13 +1,12 @@
 {% set driver = service('driver').create('google.map') %}
 {% if hide_buttons != true %}
-<div class="p-2 w-64">
-    <button class="ui basic icon button fluid current-position">
-        <i class="blue map pin icon"></i>
-        {{ labels.current }}
-    </button>   
-</div>
+    <div class="p-2 w-64">
+        <button class="{{ theme.buttons.green }} current-position">       
+            {{ labels.current }}
+        </button>   
+    </div>
 {% endif %}
-<div class="mt-2 w-full h-full">   
+<div class="mt-2 w-full h-full" id="map_content">   
     <div 
         id="map" 
         latitude="{{ latitude }}"

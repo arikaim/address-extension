@@ -1,0 +1,41 @@
+{% if uuid is not empty %}
+    {% set item = createModel('State','address').findById(uuid) %}
+{% endif %}
+
+<tr id="row_{{ item.uuid }}">
+    <td>        
+        <button 
+            class="{{ theme.buttons.icon }} edit-button" 
+            {{ buttons.edit.title|attr('title') }} 
+            uuid="{{ item.uuid }}">
+            {{ component('icons~edit',theme.icons.menu,'svg') }}
+        </button>   
+        <button 
+            class="{{ theme.buttons.icon }} delete-button" 
+            {{ buttons.delete.title|attr('title') }} 
+            uuid="{{ item.uuid }}" 
+            data-title="{{ item.name }}">
+            {{ component('icons~trash',theme.icons.delete,'svg') }}
+        </button>       
+    </td>
+    <td>
+        {{  component('system:admin.status.dropdown',{ 
+                status: item.status, 
+                uuid: item.uuid, 
+                skip: [2,3,4,5] 
+            }) 
+        }}         
+    </td>       
+    <td>
+        {{ item.code }}
+    </td>
+    <td>{{ item.name }}</td>
+    <td class="flex flex-row items-center">
+        <div class="badge badge-sm badge-outline">
+            {{ item.country_code }}
+        </div>
+        <div class="ml-2">
+            {{ item.country.name }}
+        </div>       
+    </td>
+</tr>

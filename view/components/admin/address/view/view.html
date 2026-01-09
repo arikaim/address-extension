@@ -24,12 +24,17 @@
             </tr>
         </thead>
         <tbody 
-            id="address_rows" 
-            component="address::admin.address.view.rows" 
-            namespace="address">
+            id="address_rows">
             {{ component('address::admin.address.view.rows') }}   
         </tbody>
     </table>
-    <div class="mt-2 ml-2" id="paginator">           
+    <div class="mt-2 ml-2" id="paginator">        
+        {{  component("system:admin.paginator",{ 
+                id: 'address_paginator',
+                namespace: 'address',
+                rows_selector: 'address_rows',
+                component:"address::admin.address.view.rows" 
+            })  
+        }}   
     </div>   
 </div>

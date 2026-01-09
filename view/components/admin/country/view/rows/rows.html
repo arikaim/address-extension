@@ -4,30 +4,5 @@
 {% set items = paginate(country,'country') %}  
 
 {% for item in items.getItems() %} 
-    <tr id="row_{{ item.uuid }}">
-        <td>
-            <button 
-                class="{{ theme.butons.icon }} edit-country-button" 
-                {{ buttons.edit.title|attr('title') }} 
-                uuid="{{ item.uuid }}">
-                {{ component('icons~edit',theme.icons.menu,'svg') }}
-            </button> 
-            <button 
-                class="{{ theme.butons.icon }} delete-country-button" 
-                {{ buttons.delete.title|attr('title') }} uuid="{{ item.uuid }}" data-title="{{ item.name }}">
-                {{ component('icons~trash',theme.icons.delete,'svg') }}
-            </button> 
-        </td>
-        <td>
-            {{  component('system:admin.status.dropdown',{ 
-                    status: item.status, 
-                    uuid: item.uuid, 
-                    skip: [2,3,4,5] 
-                }) 
-            }}         
-        </td>               
-        <td>{{ item.name }}</td>
-        <td>{{ item.code }}</td>
-        <td>{{ item.phone_code }}</td>
-    </tr>
+    {{ component('address::admin.country.view.item',{ item }) }}
 {% endfor %}

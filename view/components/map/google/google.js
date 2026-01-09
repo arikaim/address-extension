@@ -72,5 +72,13 @@ arikaim.component.onLoaded(function() {
             // set to position 
             initGoogleMap();
         }
+    },function(error) {
+        arikaim.ui.loadComponent({
+            mountTo: 'map_content',
+            component: 'system:admin.alert.error',
+            params: {
+                message: 'Library maps not installed'
+            }
+        });
     });
 });

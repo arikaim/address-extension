@@ -4,26 +4,45 @@
 
 <form class="form" id="state_form">  
     <input type="hidden" name="uuid" id="uuid" value="{{ uuid }}">    
-    <div class="field required">
-        <label>{{ fields.name.label }}</label>
-        <input type="text" name="name" id="name" {{ fields.name.placeholder|attr('placeholder') }} value="{{ state.name }}">  
+    <div class="{{ theme.form.field }} required">
+        <label class="{{ theme.form.label }}">
+            {{ fields.name.label }}
+        </label>
+        <input 
+            rule="empty"
+            class="{{ theme.form.input }}"
+            type="text" 
+            name="name" 
+            id="name" 
+            {{ fields.name.placeholder|attr('placeholder') }} 
+            value="{{ state.name }}">  
     </div> 
-    <div class="two fields">
-        <div class="field required">
-            <label>{{ fields.country.label }}</label>       
+    <div class="{{ theme.form.fields }}">
+        <div class="{{ theme.form.field }} required">
+            <label class="{{ theme.form.label }}">
+                {{ fields.country.label }}
+            </label>       
             {{  component('address::address.country',{ 
                     name: 'country_id',
                     data_field: 'id',
+                    rule: 'empty',
                     selected: state.country_id, 
-                    class: 'fluid' 
+                    class: '' 
                 }) 
             }}          
         </div> 
-        <div class="field required">
-            <label>{{ fields.code.label }}</label>       
-            <input type="text" name="code" id="code" {{ fields.code.placeholder|attr('placeholder') }} value="{{ state.code }}">          
+        <div class="{{ theme.form.field }} required">
+            <label class="{{ theme.form.label }}">
+                {{ fields.code.label }}
+            </label>       
+            <input 
+                class="{{ theme.form.input }}"
+                type="text" 
+                name="code" 
+                id="code" 
+                {{ fields.code.placeholder|attr('placeholder') }} 
+                value="{{ state.code }}">          
         </div> 
-    </div>
-                             
+    </div>         
     {{ component('system:form.footer') }}   
 </form>

@@ -1,6 +1,4 @@
 {   
-    "title": {
-        "content": "Add State",
-        "icon": "plus"
-    }    
+    "title": "Add State",
+    "icon": "icons~plus"    
 }

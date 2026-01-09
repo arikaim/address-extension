@@ -1,9 +1,4 @@
 {
-    "labels": {
-        "edit": "Edit",
-        "view": "View",
-        "add": "Add"
-    },
     "messages": {
         "delete": {
             "title": "Cofirm delete",

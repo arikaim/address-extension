@@ -2,39 +2,7 @@
 {{ createSearch('name','state','ilike:{value}%') }}
 {% set state = applySearch(state,'state') %}
 {% set items = paginate(state,'state') %}  
-{% for item in items.getItems() %} 
 
-<tr id="row_{{ item.uuid }}">
-    <td>        
-        <button class="ui icon mini basic button edit-button" {{ buttons.edit.title|attr('title') }} uuid="{{ item.uuid }}">
-            <i class="icon edit"></i>
-        </button>   
-        <button 
-            class="ui icon mini basic button delete-button" {{ buttons.delete.title|attr('title') }} 
-            uuid="{{ item.uuid }}" 
-            data-title="{{ item.name }}">
-            <i class="icon trash orange"></i>
-        </button>       
-    </td>
-    <td>
-        {{  component('system:admin.status.dropdown',{ 
-                status: item.status, 
-                uuid: item.uuid, 
-                skip: [2,3,4,5] 
-            }) 
-        }}         
-    </td>       
-    <td>
-        {{ item.code }}
-    </td>
-    <td>{{ item.name }}</td>
-    <td class="flex flex-row items-center">
-        <div class="badge badge-sm badge-outline">
-            {{ item.country_code }}
-        </div>
-        <div class="ml-2">
-            {{ item.country.name }}
-        </div>       
-    </td>
-</tr>
+{% for item in items.getItems() %} 
+    {{ component('address::admin.state.view.item',{ item }) }}
 {% endfor %}

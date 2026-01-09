@@ -1,5 +1,13 @@
-<div class="{{ theme.panel }}">      
-    {{ component('system:admin.search.form',{ namespace: 'state' }) }}       
+<div class="{{ theme.panel }} flex flex-row items-center">   
+    <button 
+        mountTo="state_details"
+        component="address::admin.state.add"
+        class="join-item {{ theme.buttons.green }} state-create">
+        {{ buttons.create }}
+    </button>
+    <div class="ml-4">   
+        {{ component('system:admin.search.form',{ namespace: 'state' }) }}
+    </div>       
 </div>
 <div class="mt-4 {{ theme.panel }}">
     <table class="{{ theme.table.default }}">
@@ -13,12 +21,17 @@
             </tr>
         </thead>
         <tbody 
-            id="states_rows" 
-            component="address::admin.state.view.rows" 
-            namespace="state">
+            id="states_rows">
             {{ component('address::admin.state.view.rows') }}   
         </tbody>
     </table>
-    <div class="mt-2 ml-2" id="paginator">     
+    <div class="mt-2 ml-2" id="paginator">  
+        {{  component("system:admin.paginator",{ 
+                id: 'state_paginator',
+                namespace: 'state',
+                rows_selector: 'states_rows',
+                component:"address::admin.state.view.rows" 
+            })  
+        }}   
     </div>
-</div>
+</div>Diy_#two_dev

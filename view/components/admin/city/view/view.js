@@ -9,8 +9,12 @@
 function CityView() {
     var self = this;
 
-    this.init = function() {
+    this.init = function() {      
         this.loadMessages('address::admin.city');
+
+        this.setItemsSelector('city_rows');
+        this.setItemComponentName('address::admin.city.view.item');
+
         arikaim.ui.loadComponentButton('.city-action');
 
         search.init({
@@ -19,10 +23,10 @@ function CityView() {
             event: 'city.search.load'
         },'city');
         
-        arikaim.events.on('city.search.load',function(result) {      
-            paginator.reload();
+        arikaim.events.on('city.search.load',function(result) {     
+            arikaim.ui.getComponent('city_paginator').reload();           
             self.initRows();    
-        },'citySearch');   
+        },'citySearch');        
     };
 
     this.initRows = function() {    
@@ -36,16 +40,13 @@ function CityView() {
         arikaim.ui.button('.delete-button',function(element) {
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
-            var message = arikaim.ui.template.render(self.getMessage('remove.content'),{ title: title });
+            var message = arikaim.ui.template.render(cityView.getMessage('remove.content'),{ title: title });
             
-            modal.confirmDelete({ 
-                title: self.getMessage('remove.title'),
-                description: message
-            },function() {
+            arikaim.ui.getComponent('confirm_delete').open(function() {
                 cityControlPanel.delete(uuid,function(result) {
                     arikaim.ui.table.removeRow('#row_' + result.uuid);     
                 });
-            });
+            },message);
         });
 
         arikaim.ui.button('.edit-button',function(element) {

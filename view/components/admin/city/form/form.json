@@ -9,8 +9,7 @@
             "placeholder": "Select Country"      
         },
         "capital": {
-            "label": "Capital",
-            "placeholder": ""      
+            "label": "Capital"          
         }          
     }    
 }

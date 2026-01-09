@@ -11,6 +11,10 @@ function AddressView() {
 
     this.init = function() {
         this.loadMessages('address::admin.address');
+        
+        this.setItemsSelector('address_rows');
+        this.setItemComponentName('address::admin.address.view.item');
+
         arikaim.ui.loadComponentButton('.create-address');
 
         search.init({
@@ -19,8 +23,9 @@ function AddressView() {
             event: 'address.search.load'
         },'address');
         
-        arikaim.events.on('address.search.load',function(result) {      
-            paginator.reload();
+        arikaim.events.on('address.search.load',function(result) {    
+            // reload paginator          
+            arikaim.ui.getComponent('address_paginator').reload();         
             self.initRows();    
         },'addressSearch');  
 
@@ -42,14 +47,11 @@ function AddressView() {
             var title = $(element).attr('data-title');
             var message = arikaim.ui.template.render(self.getMessage('remove.content'),{ title: title });
 
-            modal.confirmDelete({ 
-                title: self.getMessage('remove.title'),
-                description: message
-            },function() {
+            arikaim.ui.getComponent('confirm_delete').open(function() {
                 addressControlPanel.delete(uuid,function(result) {
-                    arikaim.ui.table.removeRow('#row_' + result.uuid);     
+                    self.deleteItem(result.uuid);     
                 });
-            });
+            },message);
         });
     }
 }

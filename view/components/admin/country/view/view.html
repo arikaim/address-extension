@@ -21,13 +21,17 @@
             </tr>
         </thead>
         <tbody 
-            id="country_rows" 
-            component="address::admin.country.view.rows" 
-            namespace="country">
+            id="country_rows">
             {{ component('address::admin.country.view.rows') }}   
         </tbody>
     </table>
-    <div class="mt-2 ml-2">
-       
+    <div class="mt-2 ml-2" id="paginator">
+        {{  component("system:admin.paginator",{ 
+                id: 'country_paginator',
+                namespace: 'country',
+                rows_selector: 'country_rows',
+                component:"address::admin.country.view.rows" 
+            })  
+        }}  
     </div>
 </div>

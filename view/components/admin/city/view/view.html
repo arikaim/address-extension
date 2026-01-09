@@ -36,12 +36,17 @@
             </tr>
         </thead>
         <tbody
-            id="city_rows" 
-            component="address::admin.city.view.rows" 
-            namespace="city">
+            id="city_rows">
             {{ component('address::admin.city.view.rows') }}   
         </tbody>
     </table>
     <div class="mt-2 ml-2" id="paginator">
+        {{  component("system:admin.paginator",{ 
+                id: 'city_paginator',
+                namespace: 'city',
+                rows_selector: 'city_rows',
+                component:"address::admin.city.view.rows" 
+            })  
+        }}  
     </div>
 </div>

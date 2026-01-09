@@ -12,13 +12,19 @@ function StatesView() {
     this.init = function() {   
         this.loadMessages('address::admin.state');
 
+        this.setItemsSelector('states_rows');
+        this.setItemComponentName('address::admin.state.view.item');
+
+        arikaim.ui.loadComponentButton('.state-create');
+
         search.init({
             id: 'states_rows',
             component: 'address::admin.state.view.rows',
             event: 'state.search.load'
         },'state');
         
-        arikaim.events.on('state.search.load',function(result) {                
+        arikaim.events.on('state.search.load',function(result) {   
+            arikaim.ui.getComponent('state_paginator').reload();                  
             self.initRows();    
         },'stateSearch');   
 
@@ -36,24 +42,20 @@ function StatesView() {
         arikaim.ui.button('.delete-button',function(element) {
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
-            var message = arikaim.ui.template.render(self.getMessage('remove.content'),{ title: title });
+            var message = arikaim.ui.template.render(statesView.getMessage('remove.content'),{ title: title });
 
-            modal.confirmDelete({ 
-                title: self.getMessage('remove.title'),
-                description: message
-            },function() {
+            arikaim.ui.getComponent('confirm_delete').open(function() {
                 statesControlPanel.delete(uuid,function(result) {
                     arikaim.ui.table.removeRow('#row_' + result.uuid);     
                 });
-            });
+            },message);
         });
 
         arikaim.ui.button('.edit-button',function(element) {
             var uuid = $(element).attr('uuid');
        
-
             arikaim.page.loadContent({
-                id: 'states_content',
+                id: 'state_details',
                 component: 'address::admin.state.edit',
                 params: { uuid: uuid }
             }); 

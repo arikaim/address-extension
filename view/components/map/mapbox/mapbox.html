@@ -1,8 +1,7 @@
 {% set driver = service('driver').create('mapbox.map') %}
 {% if hide_buttons != true %}
 <div class="p-2 w-64">
-    <button class="ui basic icon button fluid current-position">
-        <i class="blue map pin icon"></i>
+    <button class="u{{ theme.buttons.green }} current-position">     
         {{ labels.current }}
     </button>   
 </div>
