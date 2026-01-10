@@ -2,9 +2,6 @@
 
 arikaim.component.onLoaded(function() {
     arikaim.events.on('driver.config',function(element,name,category) {
-
-        console.log('load ' + name);
-        
         return drivers.loadConfig(name,'driver_settings_content');           
     },'driverConfig'); 
 
