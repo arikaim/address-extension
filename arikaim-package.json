@@ -12,8 +12,7 @@
     "admin-menu": {        
         "title": "Address",
         "svg_icon": "icons~address",
-        "page-title": "Address",
-        "page-icon": "icons~address",       
+        "page-title": "Address",       
         "component": "address::admin"
     }
 }
