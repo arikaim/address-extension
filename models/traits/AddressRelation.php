@@ -20,7 +20,7 @@ trait AddressRelation
     /**
      * Get address relation
      *
-     * @return Relation|null
+     * @return mixed
      */
     public function address()
     {
