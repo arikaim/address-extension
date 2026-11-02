@@ -1,0 +1,45 @@
+{
+    "title": "City Details",
+    "icon": "icons~info",
+    "columns": {
+        "name": {
+            "label": "Name",
+            "type": "text"
+        }, 
+        "status": {
+            "label": "Status",
+            "type": "status"
+        },      
+        "user": {
+            "label": "User",
+            "type": "relation",
+            "relation": {
+                "key": "user",
+                "field": "user_name_or_email"
+            }
+        },
+        "country": {
+            "label": "Country",
+            "type": "relation",
+            "relation": {
+                "key": "country",
+                "field": "name"
+            }
+        },
+        "post_code": {
+            "label": "Post Code",
+            "type": "text"           
+        },
+        "phone_code": {
+            "label": "Phone Code",
+            "type": "text"           
+        },
+        "location": {
+            "label": "Location",
+            "type": "map",
+            "latitude": "map_latitude",
+            "longitude": "map_longitude"                      
+        }
+        
+    }
+}

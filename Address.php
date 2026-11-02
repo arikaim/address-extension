@@ -72,6 +72,8 @@ class Address extends Extension
         $this->installDriver('Arikaim\\Extensions\\Address\\Drivers\\MapboxDriver');
         // Current map driver
         $this->createOption('map.default.driver','mapbox.map');    
+        // Services
+        $this->registerService('Address');
     } 
 
     public function dbInstall(): void 

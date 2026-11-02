@@ -1,0 +1,9 @@
+{% component 'system:admin.panel' %}
+    {{  component('system:admin.orm.details',{
+            model_name: 'City',
+            extension: 'address',
+            uuid: uuid,
+            columns: columns
+        }) 
+    }}
+{% endcomponent %}

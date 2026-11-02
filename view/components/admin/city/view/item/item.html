@@ -5,6 +5,14 @@
 <tr id="row_{{ item.uuid }}">
     <td>
         <button 
+            mountTo="city_details"
+            component="address::admin.city.details"
+            class="{{ theme.buttons.icon }} city-action" 
+            {{ buttons.edit.title|attr('title') }} 
+            params="uuid:{{ item.uuid }}">
+            {{ component('icons~info',theme.icons.menu,'svg') }}      
+        </button> 
+        <button 
             class="{{ theme.buttons.icon }} edit-button" 
             {{ buttons.edit.title|attr('title') }} 
             uuid="{{ item.uuid }}">

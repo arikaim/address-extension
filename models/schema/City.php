@@ -44,6 +44,11 @@ class City extends Schema
         $table->integer('is_capital')->nullable(true);         
         $table->string('map_latitude')->nullable(true);   
         $table->string('map_longitude')->nullable(true);   
+        // new
+        $table->relation('state_id','states',true); 
+        $table->string('post_code')->nullable(true);   
+        $table->string('phone_code')->nullable(true);   
+        $table->options(); 
 
         $table->unique(['name','user_id']);
     }
@@ -56,6 +61,21 @@ class City extends Schema
      */
     public function update($table) 
     {              
+        if ($this->hasColumn('state_id') == false) {
+            $table->relation('state_id','states',true); 
+        }
+
+        if ($this->hasColumn('options') == false) {
+            $table->options(); 
+        }
+
+        if ($this->hasColumn('post_code') == false) {
+            $table->string('post_code')->nullable(true);   
+        }
+
+        if ($this->hasColumn('phone_code') == false) {
+            $table->string('phone_code')->nullable(true);   
+        }
     }
 
     /**

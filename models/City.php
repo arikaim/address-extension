@@ -15,6 +15,8 @@ use Arikaim\Extensions\Address\Models\Country;
 use Arikaim\Core\Db\Traits\Uuid;
 use Arikaim\Core\Db\Traits\Find;
 use Arikaim\Core\Db\Traits\Status;
+use Arikaim\Core\Db\Traits\UserRelation;
+use Arikaim\Core\Db\Traits\OptionsAttribute;
 
 /**
  * City model
@@ -22,7 +24,9 @@ use Arikaim\Core\Db\Traits\Status;
 class City extends Model  
 {
     use Uuid,
-        Status,       
+        Status,    
+        UserRelation,
+        OptionsAttribute,
         Find;
 
     /**
@@ -43,6 +47,10 @@ class City extends Model
         'status',
         'user_id',
         'country_id',
+        'state_id',
+        'options',
+        'post_code',
+        'phone_code',
         'is_capital',
         'map_latitude',
         'map_longitude'
@@ -58,7 +66,7 @@ class City extends Model
     /**
      * Country relation
      *
-     * @return Relation|null
+     * @return object|null
      */
     public function country()
     {
@@ -87,7 +95,7 @@ class City extends Model
      */
     public function scopeCityQuery($query, string $name, ?int $userId = null)
     {
-       $query->where('name','=',$name);
+       $query->ignoreCase('name',$name,'=');
        if (empty($userId) == false) {
            $query->where('user_id','=',$userId);
        }
@@ -104,8 +112,19 @@ class City extends Model
      */
     public function hasCity(string $name, ?int $userId = null): bool
     {
-        return ($this->cityQuery($name,$userId)->first() != null);       
+        return ($this->findCity($name,$userId) != null);       
     } 
+
+    /**
+     * Find city by name and user
+     * 
+     * @param string $name
+     * @param mixed $userId
+     */
+    public function findCity(string $name, ?int $userId = null): ?object
+    {
+        return $this->cityQuery($name,$userId)->first();
+    }
 
     /**
      * Find city Id

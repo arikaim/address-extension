@@ -15,8 +15,6 @@ function CityView() {
         this.setItemsSelector('city_rows');
         this.setItemComponentName('address::admin.city.view.item');
 
-        arikaim.ui.loadComponentButton('.city-action');
-
         search.init({
             id: 'city_rows',
             component: 'address::admin.city.view.rows',
@@ -30,6 +28,8 @@ function CityView() {
     };
 
     this.initRows = function() {    
+        arikaim.ui.loadComponentButton('.city-action');
+
         $('.status-dropdown').on('change', function() {
             var value = (this).val();
             var uuid = $(this).attr('uuid');

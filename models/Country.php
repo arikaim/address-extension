@@ -82,6 +82,15 @@ class Country extends Model
     }
 
     /**
+     * Find country by code
+     * @param string $code
+     */
+    public function findByCode(string $code): ?object
+    {
+        return $this->ignoreCase('code',$code,'=')->first();
+    }
+
+    /**
      * Find country
      *
      * @param string $name
