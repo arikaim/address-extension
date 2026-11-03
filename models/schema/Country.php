@@ -41,7 +41,8 @@ class Country extends Schema
         $table->string('currency_code',5)->nullable(true);       
         $table->string('code',5)->nullable(false);         
         $table->string('phone_code')->nullable(true);   
-        $table->string('capital')->nullable(true);    
+        $table->string('capital')->nullable(true); 
+        $table->string('code3',3)->nullable(true);        
         // index
         $table->unique('code');       
         $table->index('name');
@@ -55,7 +56,10 @@ class Country extends Schema
      * @return void
      */
     public function update($table) 
-    {              
+    {             
+        if ($this->hasColumn('code3') == false) {
+            $table->string('code3',3)->nullable(true);        
+        }
     }
 
     /**
