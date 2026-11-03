@@ -21,6 +21,23 @@ function CityView() {
             event: 'city.search.load'
         },'city');
         
+        $("#country_filter").on('change', function() {
+            var selected = $(this).val();
+
+            search.setSearch({
+                search: {
+                    country_id: selected                     
+                }
+            },'city', function(result) {              
+                arikaim.ui.loadComponent({
+                    id: 'city_rows',
+                    component: 'address::admin.city.view.rows'
+                },function(result) {
+                    arikaim.events.emit('city.search.load');
+                });    
+            });
+        });
+
         arikaim.events.on('city.search.load',function(result) {     
             arikaim.ui.getComponent('city_paginator').reload();           
             self.initRows();    

@@ -1,8 +1,17 @@
+{% set country_filter = searchValue('country_id','city') %}
 {% set city = createModel('City','address').where('id','>',0) %}
+{% if country_filter is not empty %}
+    {% set city = city.countryQuery(country_filter) %}
+{% endif %}
 {{ createSearch('name','city','ilike:{value}%') }}
-{% set city = applySearch(city,'city') %}
-{% set items = paginate(city,'city') %}  
 
-{% for item in items.getItems() %} 
+{% set city = applySearch(city,'city') %}
+{% set items = paginate(city,'city').getItems() %}  
+
+{% if items|length == 0 %}
+    {{ component('address::admin.city.view.empty') }}
+{% endif %}
+
+{% for item in items %} 
     {{ component('address::admin.city.view.item',{ item }) }}
 {% endfor %}

@@ -1,3 +1,4 @@
+{% set country_filter = searchValue('country_id','city') %}
 <div class="{{ theme.panel }} flex flex-row items-center">
     <div class="join">
         <button 
@@ -6,14 +7,6 @@
             class="join-item {{ theme.buttons.green }} city-action">
             {{ buttons.create }}
         </button>
-        <!-- 
-        <button 
-            mountTo="city_details"
-            component="address::admin.city.import"
-            class="join-item {{ theme.buttons.blue }} city-action">
-            {{ buttons.import }}
-        </button>
-        -->
         <button 
             mountTo="city_details"
             component="address::admin.city.stats"
@@ -24,6 +17,19 @@
     <div class="ml-4">
         {{ component('system:admin.search.form',{ namespace: 'city' }) }}        
     </div>
+    <div class="ml-4 flex flex-row items-center">
+        <div class="font-bold px-4">
+            {{ labels.country }}
+        </div>
+        {{  component('address::address.country',{
+                id: "country_filter",
+                data_field: 'id',
+                class: 'select-sm',
+                selected: country_filter,
+                name: "country_filter"
+            }) 
+        }}
+    </div>
 </div>
 <div class="mt-4 {{ theme.panel }}">
     <table class="{{ theme.table.default }}">
@@ -31,7 +37,8 @@
             <tr>              
                 <th class="w-32">{{ columns.action }}</th>
                 <th class="w-32">{{ columns.status }}</th>                                     
-                <th>{{ columns.title }}</th>         
+                <th>{{ columns.title }}</th>  
+                <th>{{ columns.post_code }}</th>       
                 <th>{{ columns.country }}</th>                                                            
             </tr>
         </thead>

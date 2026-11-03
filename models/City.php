@@ -12,6 +12,7 @@ namespace Arikaim\Extensions\Address\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use Arikaim\Extensions\Address\Models\Country;
+use Arikaim\Extensions\Address\Models\State;
 use Arikaim\Core\Db\Traits\Uuid;
 use Arikaim\Core\Db\Traits\Find;
 use Arikaim\Core\Db\Traits\Status;
@@ -71,6 +72,15 @@ class City extends Model
     public function country()
     {
         return $this->belongsTo(Country::class,'country_id');
+    }
+
+    /**
+     * State relation
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function state()
+    {
+        return $this->belongsTo(State::class,'state_id');
     }
 
     /**

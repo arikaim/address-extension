@@ -4,10 +4,14 @@
         "stats": "Stats",        
         "import": "Import"              
     },
+    "labels": {
+        "country": "Country"
+    },
     "columns": {
         "action": "Action",    
         "country": "Country",   
         "status": "Status",      
+        "post_code": "Post Code",      
         "title": "Title"               
     }
 }
