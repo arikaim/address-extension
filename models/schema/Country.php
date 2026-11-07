@@ -47,6 +47,7 @@ class Country extends Schema
         $table->unique('code');       
         $table->index('name');
         $table->index('phone_code');
+        $table->unique('code3');     
     }
 
     /**

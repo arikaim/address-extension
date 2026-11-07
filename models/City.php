@@ -101,7 +101,7 @@ class City extends Model
      * @param Builder $query
      * @param string $name
      * @param integer|null $userId
-     * @return Builder
+     * @return mixed
      */
     public function scopeCityQuery($query, string $name, ?int $userId = null)
     {

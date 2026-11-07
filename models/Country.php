@@ -87,7 +87,9 @@ class Country extends Model
      */
     public function findByCode(string $code): ?object
     {
-        return $this->ignoreCase('code',$code,'=')->first();
+        $model = $this->ignoreCase('code',$code,'=')->first();
+        
+        return ($model != null) ? $model : $this->ignoreCase('code3',$code,'=')->first();
     }
 
     /**

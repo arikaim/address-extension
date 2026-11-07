@@ -209,7 +209,7 @@ class Address extends Model implements ContentProviderInterface
     /**
      * Get country relation
      *
-     * @return Relation|null
+     * @return object|null
      */
     public function country()
     {
@@ -223,7 +223,7 @@ class Address extends Model implements ContentProviderInterface
     /**
      * Get city relation
      *
-     * @return Relation|null
+     * @return object|null
      */
     public function city()
     {
@@ -237,7 +237,7 @@ class Address extends Model implements ContentProviderInterface
     /**
      * Get state relation
      *
-     * @return Relation|null
+     * @return object|null
      */
     public function state()
     {

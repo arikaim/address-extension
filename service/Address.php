@@ -27,6 +27,38 @@ class Address extends Service implements ServiceInterface
         $this->setServiceName('address');
     }    
 
+    public function createAddress(
+        string $countryCode, 
+        string $cityName, 
+        array $data, 
+        ?int $userId = null
+    ): ?array
+    {
+        $data['user_id'] = $userId ?? $data['user_id'] ?? null;
+        $data = $this->resolveAddressData($countryCode, $cityName, $data);
+
+        return Model::Country('address')->createItem($data); 
+    }
+
+    protected function resolveAddressData(string $countryCode, string $cityName, array $data): array
+    {
+        $data['user_id'] = $userId ?? $data['user_id'] ?? null;
+
+        $country = Model::Country('address')->findByCode($countryCode);
+        $data['country_id'] = ($country == null) ? null : $country->id;
+
+        $city = $this->createOrUpdateCity(
+            $countryCode,
+            $cityName,
+            $data['city'] ?? [],
+            $data['user_id']
+        );
+
+        $data['city_id'] = ($city != null) ? $city->id : null;
+       
+        return $data;
+    }
+
     /**
      * Create or update city
      * @param string $countryCode
