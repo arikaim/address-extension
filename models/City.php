@@ -99,13 +99,17 @@ class City extends Model
      * Find city query
      *
      * @param Builder $query
-     * @param string $name
+     * @param mixed $name
      * @param integer|null $userId
      * @return mixed
      */
-    public function scopeCityQuery($query, string $name, ?int $userId = null)
+    public function scopeCityQuery($query, $name, ?int $userId = null)
     {
-       $query->ignoreCase('name',$name,'=');
+       $query
+            ->ignoreCase('name',$name,'=')
+            ->orWhere('uuid','=',$name)
+            ->orWhere('id','=',$name);
+
        if (empty($userId) == false) {
            $query->where('user_id','=',$userId);
        }
@@ -116,11 +120,11 @@ class City extends Model
     /**
      * Return true if city exist
      *
-     * @param string $name
+     * @param mixed $name
      * @param integer|null $userId
      * @return boolean
      */
-    public function hasCity(string $name, ?int $userId = null): bool
+    public function hasCity($name, ?int $userId = null): bool
     {
         return ($this->findCity($name,$userId) != null);       
     } 
@@ -128,10 +132,10 @@ class City extends Model
     /**
      * Find city by name and user
      * 
-     * @param string $name
+     * @param mixed $name
      * @param mixed $userId
      */
-    public function findCity(string $name, ?int $userId = null): ?object
+    public function findCity($name, ?int $userId = null): ?object
     {
         return $this->cityQuery($name,$userId)->first();
     }

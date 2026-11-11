@@ -75,7 +75,7 @@ class Country extends Model
     public function scopeCountryQuery($query, $name)
     {
         return $query
-            ->where('name','=',$name)
+            ->ignoreCase('name','=',$name)
             ->orWhere('code','=',$name)
             ->orWhere('uuid','=',$name)
             ->orWhere('id','=',$name);

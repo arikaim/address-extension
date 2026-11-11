@@ -130,6 +130,29 @@ class Address extends Model implements ContentProviderInterface
         return true;
     }
 
+
+    /**
+     * Find address scope
+     * @param mixed $query
+     * @param mixed $countryId
+     * @param mixed $cityId
+     * @param mixed $street
+     */
+    public function scopeFindAddress($query, ?int $countryId, ?int $cityId, ?string $street) 
+    {
+        if (empty($street) == false) {
+            $query = $query->ignoreCase('address',$street);
+        }
+        if (empty($countryId) == false) {
+            $query = $query->where('country_id','=',$countryId);
+        }
+        if (empty($countryId) == false) {
+            $query = $query->where('city_id','=',$cityId);
+        }
+
+        return $query;           
+    }
+
     /**
      * Return true if address has map location
      *
